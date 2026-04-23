@@ -1,0 +1,438 @@
+test
+2026-04-19 00:20:32,241 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 成功获取新的访问令牌
+2026-04-19 00:20:32,254 - email_utils - INFO - [ThreadPoolExecutor-0_0] - ===== 开始处理邮箱 nbdstlfyue+hfcjy@hotmail.com (ID:1) =====
+2026-04-19 00:20:32,254 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 获取Outlook邮箱nbdstlfyue+hfcjy@hotmail.com中inbox文件夹的所有邮件
+2026-04-19 00:20:32,255 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 尝试连接Outlook邮箱 (尝试 1/3)
+2026-04-19 00:20:34,005 - email_utils - ERROR - [ThreadPoolExecutor-0_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=SL2P216MB2958.KORP216.PROD.OUTLOOK.COM:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 00:20:35,129 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 尝试连接Outlook邮箱 (尝试 2/3)
+2026-04-19 00:20:36,791 - email_utils - ERROR - [ThreadPoolExecutor-0_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=SE2P216MB3206.KORP216.PROD.OUTLOOK.COM:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 00:20:37,919 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 尝试连接Outlook邮箱 (尝试 3/3)
+2026-04-19 00:20:39,567 - email_utils - ERROR - [ThreadPoolExecutor-0_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=PUUP216MB3401.KORP216.PROD.OUTLOOK.COM:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 00:20:40,695 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 更新邮箱 ID:1 的检查时间
+2026-04-19 00:20:40,708 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 00:20:50,594 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 成功获取新的访问令牌
+2026-04-19 00:20:50,604 - email_utils - INFO - [ThreadPoolExecutor-0_0] - ===== 开始处理邮箱 nbdstlfyue+hfcjy@hotmail.com (ID:1) =====
+2026-04-19 00:20:50,604 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 获取Outlook邮箱nbdstlfyue+hfcjy@hotmail.com中inbox文件夹自2026-04-18T16:20:40以来的新邮件
+2026-04-19 00:20:50,605 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 尝试连接Outlook邮箱 (尝试 1/3)
+2026-04-19 00:20:52,307 - email_utils - ERROR - [ThreadPoolExecutor-0_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=SLXP216MB1115.KORP216.PROD.OUTLOOK.COM:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 00:20:53,425 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 尝试连接Outlook邮箱 (尝试 2/3)
+2026-04-19 00:20:55,131 - email_utils - ERROR - [ThreadPoolExecutor-0_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=SE2P216MB1972.KORP216.PROD.OUTLOOK.COM:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 00:20:56,260 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 尝试连接Outlook邮箱 (尝试 3/3)
+2026-04-19 00:20:57,906 - email_utils - ERROR - [ThreadPoolExecutor-0_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=PU4P216MB1406.KORP216.PROD.OUTLOOK.COM:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 00:20:59,023 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 更新邮箱 ID:1 的检查时间
+2026-04-19 00:20:59,034 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 00:21:07,989 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 成功获取新的访问令牌
+2026-04-19 00:21:08,003 - email_utils - INFO - [ThreadPoolExecutor-1_0] - ===== 开始处理邮箱 nbdstlfyue+hfcjy@hotmail.com (ID:1) =====
+2026-04-19 00:21:08,004 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 获取Outlook邮箱nbdstlfyue+hfcjy@hotmail.com中inbox文件夹自2026-04-18T16:20:59以来的新邮件
+2026-04-19 00:21:08,004 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 1/3)
+2026-04-19 00:21:09,612 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=SE1P216MB1302.KORP216.PROD.OUTLOOK.COM:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 00:21:10,727 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 2/3)
+2026-04-19 00:21:12,436 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=SL2P216MB2798.KORP216.PROD.OUTLOOK.COM:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 00:21:13,572 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 3/3)
+2026-04-19 00:21:15,601 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=SEWP216MB2879.KORP216.PROD.OUTLOOK.COM:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 00:21:16,712 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 更新邮箱 ID:1 的检查时间
+2026-04-19 00:21:16,720 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 00:22:08,827 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 成功获取新的访问令牌
+2026-04-19 00:22:08,839 - email_utils - INFO - [ThreadPoolExecutor-1_0] - ===== 开始处理邮箱 nbdstlfyue+hfcjy@hotmail.com (ID:1) =====
+2026-04-19 00:22:08,839 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 获取Outlook邮箱nbdstlfyue+hfcjy@hotmail.com中inbox文件夹自2026-04-18T16:21:16以来的新邮件
+2026-04-19 00:22:08,839 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 1/3)
+2026-04-19 00:22:10,499 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=PU4P216MB1501.KORP216.PROD.OUTLOOK.COM:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 00:22:11,626 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 2/3)
+2026-04-19 00:22:13,642 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=PUVP216MB3204.KORP216.PROD.OUTLOOK.COM:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 00:22:14,760 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 3/3)
+2026-04-19 00:22:16,446 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=SE5P216MB3215.KORP216.PROD.OUTLOOK.COM:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 00:22:17,566 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 更新邮箱 ID:1 的检查时间
+2026-04-19 00:22:17,574 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 00:23:08,988 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - 刷新令牌过程中发生异常: HTTPSConnectionPool(host='login.microsoftonline.com', port=443): Max retries exceeded with url: /common/oauth2/v2.0/token (Caused by SSLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1020)')))
+2026-04-19 00:23:08,989 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:01:45,454 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 成功获取新的访问令牌
+2026-04-19 13:01:45,461 - email_utils - INFO - [ThreadPoolExecutor-1_0] - ===== 开始处理邮箱 nbdstlfyue+hfcjy@hotmail.com (ID:1) =====
+2026-04-19 13:01:45,461 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 获取Outlook邮箱nbdstlfyue+hfcjy@hotmail.com中inbox文件夹自2026-04-18T16:22:17以来的新邮件
+2026-04-19 13:01:45,462 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 1/3)
+2026-04-19 13:01:48,359 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=SEYPR02MB8734.apcprd02.prod.outlook.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:01:49,459 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 2/3)
+2026-04-19 13:01:51,524 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=SEYPR02MB8755.apcprd02.PROD.OUTLOOK.COM:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:01:52,647 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 3/3)
+2026-04-19 13:01:54,531 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=KL1PR06MB6321.apcprd06.prod.outlook.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:01:55,644 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 更新邮箱 ID:1 的检查时间
+2026-04-19 13:01:55,651 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:02:21,550 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 成功获取新的访问令牌
+2026-04-19 13:02:21,562 - email_utils - INFO - [ThreadPoolExecutor-0_0] - ===== 开始处理邮箱 nbdstlfyue+hfcjy@hotmail.com (ID:1) =====
+2026-04-19 13:02:21,563 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 获取Outlook邮箱nbdstlfyue+hfcjy@hotmail.com中inbox文件夹自2026-04-19T05:01:55以来的新邮件
+2026-04-19 13:02:21,563 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 尝试连接Outlook邮箱 (尝试 1/3)
+2026-04-19 13:02:23,715 - email_utils - ERROR - [ThreadPoolExecutor-0_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=SI6PR01MB7026.apcprd01.prod.exchangelabs.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:02:24,830 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 尝试连接Outlook邮箱 (尝试 2/3)
+2026-04-19 13:02:26,992 - email_utils - ERROR - [ThreadPoolExecutor-0_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=TY0PR0101MB4119.apcprd01.prod.exchangelabs.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:02:28,110 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 尝试连接Outlook邮箱 (尝试 3/3)
+2026-04-19 13:02:30,024 - email_utils - ERROR - [ThreadPoolExecutor-0_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=PUZPR03MB6157.apcprd03.prod.outlook.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:02:31,131 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 更新邮箱 ID:1 的检查时间
+2026-04-19 13:02:31,146 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:02:46,770 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 成功获取新的访问令牌
+2026-04-19 13:02:46,787 - email_utils - INFO - [ThreadPoolExecutor-1_0] - ===== 开始处理邮箱 nbdstlfyue+hfcjy@hotmail.com (ID:1) =====
+2026-04-19 13:02:46,788 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 获取Outlook邮箱nbdstlfyue+hfcjy@hotmail.com中inbox文件夹自2026-04-19T05:02:31以来的新邮件
+2026-04-19 13:02:46,789 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 1/3)
+2026-04-19 13:02:50,284 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=SEYPR02MB8666.apcprd02.prod.outlook.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:02:51,388 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 2/3)
+2026-04-19 13:02:53,125 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=KU2PPF588450D74.apcprd06.PROD.OUTLOOK.COM:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:02:54,235 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 3/3)
+2026-04-19 13:02:56,322 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=TYZPR06MB6826.apcprd06.prod.outlook.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:02:57,440 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 更新邮箱 ID:1 的检查时间
+2026-04-19 13:02:57,448 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:03:47,759 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 成功获取新的访问令牌
+2026-04-19 13:03:47,771 - email_utils - INFO - [ThreadPoolExecutor-1_0] - ===== 开始处理邮箱 nbdstlfyue+hfcjy@hotmail.com (ID:1) =====
+2026-04-19 13:03:47,771 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 获取Outlook邮箱nbdstlfyue+hfcjy@hotmail.com中inbox文件夹自2026-04-19T05:02:57以来的新邮件
+2026-04-19 13:03:47,771 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 1/3)
+2026-04-19 13:03:49,796 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=JH0PR02MB7678.apcprd02.prod.outlook.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:03:50,904 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 2/3)
+2026-04-19 13:03:52,868 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=TY0PR06MB4893.apcprd06.prod.outlook.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:03:53,989 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 3/3)
+2026-04-19 13:03:57,629 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=SEYPR01MB4439.apcprd01.prod.exchangelabs.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:03:58,730 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 更新邮箱 ID:1 的检查时间
+2026-04-19 13:03:58,744 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:04:49,276 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 成功获取新的访问令牌
+2026-04-19 13:04:49,287 - email_utils - INFO - [ThreadPoolExecutor-1_0] - ===== 开始处理邮箱 nbdstlfyue+hfcjy@hotmail.com (ID:1) =====
+2026-04-19 13:04:49,288 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 获取Outlook邮箱nbdstlfyue+hfcjy@hotmail.com中inbox文件夹自2026-04-19T05:03:58以来的新邮件
+2026-04-19 13:04:49,288 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 1/3)
+2026-04-19 13:04:51,276 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=KL1PR01MB6081.apcprd01.prod.exchangelabs.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:04:52,389 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 2/3)
+2026-04-19 13:04:54,372 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=TYSPR06MB6608.apcprd06.PROD.OUTLOOK.COM:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:04:55,489 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 3/3)
+2026-04-19 13:04:57,828 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=TYZPR01MB7023.apcprd01.prod.exchangelabs.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:04:59,070 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 更新邮箱 ID:1 的检查时间
+2026-04-19 13:04:59,078 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:05:49,516 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 成功获取新的访问令牌
+2026-04-19 13:05:49,527 - email_utils - INFO - [ThreadPoolExecutor-1_0] - ===== 开始处理邮箱 nbdstlfyue+hfcjy@hotmail.com (ID:1) =====
+2026-04-19 13:05:49,527 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 获取Outlook邮箱nbdstlfyue+hfcjy@hotmail.com中inbox文件夹自2026-04-19T05:04:59以来的新邮件
+2026-04-19 13:05:49,527 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 1/3)
+2026-04-19 13:05:51,463 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: SELECT command error: BAD [b'Command Error. 12']
+2026-04-19 13:05:52,576 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 2/3)
+2026-04-19 13:05:53,687 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: AUTHENTICATE failed.
+2026-04-19 13:05:54,794 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 3/3)
+2026-04-19 13:05:56,699 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=KL1PR02MB7003.apcprd02.PROD.OUTLOOK.COM:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:05:57,810 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 更新邮箱 ID:1 的检查时间
+2026-04-19 13:05:57,819 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:06:20,776 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 成功获取新的访问令牌
+2026-04-19 13:06:20,790 - email_utils - INFO - [ThreadPoolExecutor-0_0] - ===== 开始处理邮箱 nbdstlfyue+hfcjy@hotmail.com (ID:1) =====
+2026-04-19 13:06:20,791 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 获取Outlook邮箱nbdstlfyue+hfcjy@hotmail.com中inbox文件夹自2026-04-19T05:05:57以来的新邮件
+2026-04-19 13:06:20,791 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 尝试连接Outlook邮箱 (尝试 1/3)
+2026-04-19 13:06:22,559 - email_utils - ERROR - [ThreadPoolExecutor-0_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=JH0PR02MB8305.apcprd02.prod.outlook.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:06:23,691 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 尝试连接Outlook邮箱 (尝试 2/3)
+2026-04-19 13:06:26,724 - email_utils - ERROR - [ThreadPoolExecutor-0_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=SEYPR02MB5774.apcprd02.PROD.OUTLOOK.COM:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:06:27,834 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 尝试连接Outlook邮箱 (尝试 3/3)
+2026-04-19 13:06:29,949 - email_utils - ERROR - [ThreadPoolExecutor-0_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=SE2PPFAB9E5241A.apcprd02.PROD.OUTLOOK.COM:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:06:31,055 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 更新邮箱 ID:1 的检查时间
+2026-04-19 13:06:31,064 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:06:51,355 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 成功获取新的访问令牌
+2026-04-19 13:06:51,367 - email_utils - INFO - [ThreadPoolExecutor-1_0] - ===== 开始处理邮箱 nbdstlfyue+hfcjy@hotmail.com (ID:1) =====
+2026-04-19 13:06:51,368 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 获取Outlook邮箱nbdstlfyue+hfcjy@hotmail.com中inbox文件夹自2026-04-19T05:06:31以来的新邮件
+2026-04-19 13:06:51,368 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 1/3)
+2026-04-19 13:06:53,213 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=KUXPR06MB8294.apcprd06.PROD.OUTLOOK.COM:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:06:54,319 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 2/3)
+2026-04-19 13:06:56,432 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=TYZPR01MB5240.apcprd01.prod.exchangelabs.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:06:57,538 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 3/3)
+2026-04-19 13:06:59,690 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=SEZPR06MB5094.apcprd06.prod.outlook.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:07:00,801 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 更新邮箱 ID:1 的检查时间
+2026-04-19 13:07:00,808 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:07:51,536 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 成功获取新的访问令牌
+2026-04-19 13:07:51,547 - email_utils - INFO - [ThreadPoolExecutor-1_0] - ===== 开始处理邮箱 nbdstlfyue+hfcjy@hotmail.com (ID:1) =====
+2026-04-19 13:07:51,548 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 获取Outlook邮箱nbdstlfyue+hfcjy@hotmail.com中inbox文件夹自2026-04-19T05:07:00以来的新邮件
+2026-04-19 13:07:51,548 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 1/3)
+2026-04-19 13:07:53,440 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=KL1PR02MB7261.apcprd02.prod.outlook.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:07:54,548 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 2/3)
+2026-04-19 13:07:56,910 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=SEZPR02MB6948.apcprd02.PROD.OUTLOOK.COM:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:07:58,019 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 3/3)
+2026-04-19 13:08:00,048 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: SELECT command error: BAD [b'Command Error. 12']
+2026-04-19 13:08:01,158 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 更新邮箱 ID:1 的检查时间
+2026-04-19 13:08:01,165 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:08:52,764 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 成功获取新的访问令牌
+2026-04-19 13:08:52,777 - email_utils - INFO - [ThreadPoolExecutor-1_0] - ===== 开始处理邮箱 nbdstlfyue+hfcjy@hotmail.com (ID:1) =====
+2026-04-19 13:08:52,778 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 获取Outlook邮箱nbdstlfyue+hfcjy@hotmail.com中inbox文件夹自2026-04-19T05:08:01以来的新邮件
+2026-04-19 13:08:52,778 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 1/3)
+2026-04-19 13:08:54,752 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=TYQPR02MB8868.apcprd02.PROD.OUTLOOK.COM:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:08:55,856 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 2/3)
+2026-04-19 13:08:57,814 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=TYZPR04MB5782.apcprd04.prod.outlook.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:08:58,921 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 3/3)
+2026-04-19 13:09:00,607 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=JH0PR02MB6657.apcprd02.prod.outlook.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:09:01,710 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 更新邮箱 ID:1 的检查时间
+2026-04-19 13:09:01,718 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:09:53,487 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 成功获取新的访问令牌
+2026-04-19 13:09:53,499 - email_utils - INFO - [ThreadPoolExecutor-1_0] - ===== 开始处理邮箱 nbdstlfyue+hfcjy@hotmail.com (ID:1) =====
+2026-04-19 13:09:53,499 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 获取Outlook邮箱nbdstlfyue+hfcjy@hotmail.com中inbox文件夹自2026-04-19T05:09:01以来的新邮件
+2026-04-19 13:09:53,500 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 1/3)
+2026-04-19 13:09:55,848 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=TYUPR01MB5203.apcprd01.prod.exchangelabs.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:09:56,955 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 2/3)
+2026-04-19 13:09:59,189 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=SEYPR01MB5268.apcprd01.prod.exchangelabs.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:10:00,297 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 3/3)
+2026-04-19 13:10:02,208 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=TY0PR06MB6881.apcprd06.prod.outlook.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:10:03,312 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 更新邮箱 ID:1 的检查时间
+2026-04-19 13:10:03,323 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:10:54,562 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 成功获取新的访问令牌
+2026-04-19 13:10:54,572 - email_utils - INFO - [ThreadPoolExecutor-1_0] - ===== 开始处理邮箱 nbdstlfyue+hfcjy@hotmail.com (ID:1) =====
+2026-04-19 13:10:54,572 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 获取Outlook邮箱nbdstlfyue+hfcjy@hotmail.com中inbox文件夹自2026-04-19T05:10:03以来的新邮件
+2026-04-19 13:10:54,572 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 1/3)
+2026-04-19 13:10:56,922 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=TYZPR01MB5037.apcprd01.prod.exchangelabs.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:10:58,069 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 2/3)
+2026-04-19 13:11:00,011 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=SI2PR02MB4889.apcprd02.prod.outlook.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:11:01,233 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 3/3)
+2026-04-19 13:11:03,283 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=JH0PR02MB8724.apcprd02.prod.outlook.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:11:04,402 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 更新邮箱 ID:1 的检查时间
+2026-04-19 13:11:04,413 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:11:57,027 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 成功获取新的访问令牌
+2026-04-19 13:11:57,037 - email_utils - INFO - [ThreadPoolExecutor-1_0] - ===== 开始处理邮箱 nbdstlfyue+hfcjy@hotmail.com (ID:1) =====
+2026-04-19 13:11:57,037 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 获取Outlook邮箱nbdstlfyue+hfcjy@hotmail.com中inbox文件夹自2026-04-19T05:11:04以来的新邮件
+2026-04-19 13:11:57,037 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 1/3)
+2026-04-19 13:11:59,076 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=TYPPR04MB8932.apcprd04.prod.outlook.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:12:00,214 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 2/3)
+2026-04-19 13:12:03,347 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=KUXPR02MB9263.apcprd02.prod.outlook.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:12:04,479 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 3/3)
+2026-04-19 13:12:06,906 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=PS1PPFD4FFB25FA.apcprd02.prod.outlook.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:12:08,017 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 更新邮箱 ID:1 的检查时间
+2026-04-19 13:12:08,028 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:12:56,709 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 成功获取新的访问令牌
+2026-04-19 13:12:56,722 - email_utils - INFO - [ThreadPoolExecutor-1_0] - ===== 开始处理邮箱 nbdstlfyue+hfcjy@hotmail.com (ID:1) =====
+2026-04-19 13:12:56,723 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 获取Outlook邮箱nbdstlfyue+hfcjy@hotmail.com中inbox文件夹自2026-04-19T05:12:08以来的新邮件
+2026-04-19 13:12:56,723 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 1/3)
+2026-04-19 13:12:58,567 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=SI2PR03MB6710.apcprd03.prod.outlook.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:12:59,683 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 2/3)
+2026-04-19 13:13:03,640 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=SEYPR01MB7148.apcprd01.prod.exchangelabs.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:13:04,766 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 3/3)
+2026-04-19 13:13:05,868 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: AUTHENTICATE failed.
+2026-04-19 13:13:06,975 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 更新邮箱 ID:1 的检查时间
+2026-04-19 13:13:06,983 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:13:58,206 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 成功获取新的访问令牌
+2026-04-19 13:13:58,220 - email_utils - INFO - [ThreadPoolExecutor-1_0] - ===== 开始处理邮箱 nbdstlfyue+hfcjy@hotmail.com (ID:1) =====
+2026-04-19 13:13:58,220 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 获取Outlook邮箱nbdstlfyue+hfcjy@hotmail.com中inbox文件夹自2026-04-19T05:13:06以来的新邮件
+2026-04-19 13:13:58,220 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 1/3)
+2026-04-19 13:14:00,427 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=TYZPR02MB8376.apcprd02.PROD.OUTLOOK.COM:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:14:01,543 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 2/3)
+2026-04-19 13:14:03,278 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=SI2PR02MB6117.apcprd02.prod.outlook.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:14:04,529 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 3/3)
+2026-04-19 13:14:05,614 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: AUTHENTICATE failed.
+2026-04-19 13:14:06,713 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 更新邮箱 ID:1 的检查时间
+2026-04-19 13:14:06,722 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:14:59,090 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 成功获取新的访问令牌
+2026-04-19 13:14:59,101 - email_utils - INFO - [ThreadPoolExecutor-1_0] - ===== 开始处理邮箱 nbdstlfyue+hfcjy@hotmail.com (ID:1) =====
+2026-04-19 13:14:59,101 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 获取Outlook邮箱nbdstlfyue+hfcjy@hotmail.com中inbox文件夹自2026-04-19T05:14:06以来的新邮件
+2026-04-19 13:14:59,101 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 1/3)
+2026-04-19 13:15:00,754 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=SI6PR06MB7659.apcprd06.prod.outlook.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:15:01,852 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 2/3)
+2026-04-19 13:15:03,799 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=SEZPR06MB6288.apcprd06.prod.outlook.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:15:04,901 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 3/3)
+2026-04-19 13:15:07,256 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=OSNPR02MB9244.apcprd02.prod.outlook.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:15:08,353 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 更新邮箱 ID:1 的检查时间
+2026-04-19 13:15:08,365 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:16:00,163 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 成功获取新的访问令牌
+2026-04-19 13:16:00,179 - email_utils - INFO - [ThreadPoolExecutor-1_0] - ===== 开始处理邮箱 nbdstlfyue+hfcjy@hotmail.com (ID:1) =====
+2026-04-19 13:16:00,179 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 获取Outlook邮箱nbdstlfyue+hfcjy@hotmail.com中inbox文件夹自2026-04-19T05:15:08以来的新邮件
+2026-04-19 13:16:00,179 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 1/3)
+2026-04-19 13:16:02,208 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=SEYPR06MB6662.apcprd06.prod.outlook.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:16:03,309 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 2/3)
+2026-04-19 13:16:06,120 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=TYQPR02MB8916.apcprd02.prod.outlook.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:16:07,239 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 3/3)
+2026-04-19 13:16:09,441 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=KL1PR02MB4562.apcprd02.prod.outlook.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:16:10,565 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 更新邮箱 ID:1 的检查时间
+2026-04-19 13:16:10,574 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:17:01,065 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 成功获取新的访问令牌
+2026-04-19 13:17:01,091 - email_utils - INFO - [ThreadPoolExecutor-1_0] - ===== 开始处理邮箱 nbdstlfyue+hfcjy@hotmail.com (ID:1) =====
+2026-04-19 13:17:01,092 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 获取Outlook邮箱nbdstlfyue+hfcjy@hotmail.com中inbox文件夹自2026-04-19T05:16:10以来的新邮件
+2026-04-19 13:17:01,092 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 1/3)
+2026-04-19 13:17:02,183 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: AUTHENTICATE failed.
+2026-04-19 13:17:03,281 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 2/3)
+2026-04-19 13:17:05,406 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: SELECT command error: BAD [b'Command Error. 12']
+2026-04-19 13:17:06,577 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 3/3)
+2026-04-19 13:17:08,851 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=TY0PR02MB6857.apcprd02.prod.outlook.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:17:09,959 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 更新邮箱 ID:1 的检查时间
+2026-04-19 13:17:09,977 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:18:02,087 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 成功获取新的访问令牌
+2026-04-19 13:18:02,109 - email_utils - INFO - [ThreadPoolExecutor-1_0] - ===== 开始处理邮箱 nbdstlfyue+hfcjy@hotmail.com (ID:1) =====
+2026-04-19 13:18:02,109 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 获取Outlook邮箱nbdstlfyue+hfcjy@hotmail.com中inbox文件夹自2026-04-19T05:17:09以来的新邮件
+2026-04-19 13:18:02,110 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 1/3)
+2026-04-19 13:18:04,183 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=TYUPR02MB6276.apcprd02.prod.outlook.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:18:05,304 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 2/3)
+2026-04-19 13:18:08,501 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=OSNPR01MB7697.apcprd01.prod.exchangelabs.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 13:18:09,602 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 尝试连接Outlook邮箱 (尝试 3/3)
+2026-04-19 13:18:10,786 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - IMAP错误: AUTHENTICATE failed.
+2026-04-19 13:18:11,885 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 更新邮箱 ID:1 的检查时间
+2026-04-19 13:18:11,905 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:18:58,072 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Start checking Outlook mailbox: id=1, email=nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:18:59,071 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Access token refreshed successfully
+2026-04-19 13:18:59,083 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Fetch Outlook mail via Graph since 2026-04-19T05:18:11 for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:19:05,695 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Graph returned 0 messages for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:19:05,703 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Outlook mailbox check completed: 完成，通过Graph共处理0封邮件，新增0封
+2026-04-19 13:19:05,703 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:19:14,005 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Start checking Outlook mailbox: id=1, email=nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:19:15,370 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Access token refreshed successfully
+2026-04-19 13:19:15,378 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Fetch Outlook mail via Graph since 2026-04-19T05:19:05 for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:19:16,322 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Graph returned 0 messages for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:19:16,331 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Outlook mailbox check completed: 完成，通过Graph共处理0封邮件，新增0封
+2026-04-19 13:19:16,331 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:19:59,091 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Start checking Outlook mailbox: id=1, email=nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:19:59,963 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Access token refreshed successfully
+2026-04-19 13:19:59,971 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Fetch Outlook mail via Graph since 2026-04-19T05:19:16 for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:20:00,886 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Graph returned 0 messages for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:20:00,899 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Outlook mailbox check completed: 完成，通过Graph共处理0封邮件，新增0封
+2026-04-19 13:20:00,899 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:21:00,113 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Start checking Outlook mailbox: id=1, email=nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:21:01,948 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Access token refreshed successfully
+2026-04-19 13:21:01,971 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Fetch Outlook mail via Graph since 2026-04-19T05:20:00 for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:21:03,651 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Graph returned 0 messages for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:21:03,678 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Outlook mailbox check completed: 完成，通过Graph共处理0封邮件，新增0封
+2026-04-19 13:21:03,679 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:22:01,135 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Start checking Outlook mailbox: id=1, email=nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:22:02,174 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Access token refreshed successfully
+2026-04-19 13:22:02,182 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Fetch Outlook mail via Graph since 2026-04-19T05:21:03 for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:22:03,739 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Graph returned 0 messages for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:22:03,751 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Outlook mailbox check completed: 完成，通过Graph共处理0封邮件，新增0封
+2026-04-19 13:22:03,751 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:23:02,157 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Start checking Outlook mailbox: id=1, email=nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:23:03,140 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Access token refreshed successfully
+2026-04-19 13:23:03,152 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Fetch Outlook mail via Graph since 2026-04-19T05:22:03 for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:23:03,978 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Graph returned 0 messages for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:23:03,987 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Outlook mailbox check completed: 完成，通过Graph共处理0封邮件，新增0封
+2026-04-19 13:23:03,988 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:23:25,796 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Start checking Outlook mailbox: id=1, email=nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:23:27,135 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Access token refreshed successfully
+2026-04-19 13:23:27,155 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Fetch Outlook mail via Graph since 2026-04-19T05:23:03 for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:23:28,358 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Graph returned 0 messages for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:23:28,369 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Outlook mailbox check completed: 完成，通过Graph共处理0封邮件，新增0封
+2026-04-19 13:23:28,369 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:23:40,049 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Start checking Outlook mailbox: id=1, email=nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:23:41,356 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Access token refreshed successfully
+2026-04-19 13:23:41,370 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Fetch Outlook mail via Graph since 2026-04-19T05:23:28 for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:23:43,251 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Graph returned 0 messages for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:23:43,261 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Outlook mailbox check completed: 完成，通过Graph共处理0封邮件，新增0封
+2026-04-19 13:23:43,261 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:24:03,179 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Start checking Outlook mailbox: id=1, email=nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:24:04,093 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Access token refreshed successfully
+2026-04-19 13:24:04,107 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Fetch Outlook mail via Graph since 2026-04-19T05:23:43 for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:24:04,982 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Graph returned 0 messages for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:24:04,996 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Outlook mailbox check completed: 完成，通过Graph共处理0封邮件，新增0封
+2026-04-19 13:24:04,996 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:25:04,200 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Start checking Outlook mailbox: id=1, email=nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:25:05,088 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Access token refreshed successfully
+2026-04-19 13:25:05,098 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Fetch Outlook mail via Graph since 2026-04-19T05:24:04 for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:25:06,078 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Graph returned 0 messages for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:25:06,089 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Outlook mailbox check completed: 完成，通过Graph共处理0封邮件，新增0封
+2026-04-19 13:25:06,089 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:26:05,219 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Start checking Outlook mailbox: id=1, email=nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:26:06,197 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Access token refreshed successfully
+2026-04-19 13:26:06,210 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Fetch Outlook mail via Graph since 2026-04-19T05:25:06 for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:26:07,390 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Graph returned 0 messages for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:26:07,404 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Outlook mailbox check completed: 完成，通过Graph共处理0封邮件，新增0封
+2026-04-19 13:26:07,404 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:27:06,240 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Start checking Outlook mailbox: id=1, email=nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:27:08,013 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Access token refreshed successfully
+2026-04-19 13:27:08,026 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Fetch Outlook mail via Graph since 2026-04-19T05:26:07 for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:27:08,876 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Graph returned 0 messages for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:27:08,885 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Outlook mailbox check completed: 完成，通过Graph共处理0封邮件，新增0封
+2026-04-19 13:27:08,886 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:28:07,259 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Start checking Outlook mailbox: id=1, email=nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:28:08,179 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Access token refreshed successfully
+2026-04-19 13:28:08,188 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Fetch Outlook mail via Graph since 2026-04-19T05:27:08 for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:28:09,733 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Graph returned 0 messages for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:28:09,746 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Outlook mailbox check completed: 完成，通过Graph共处理0封邮件，新增0封
+2026-04-19 13:28:09,746 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:29:08,277 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Start checking Outlook mailbox: id=1, email=nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:29:09,372 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Access token refreshed successfully
+2026-04-19 13:29:09,379 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Fetch Outlook mail via Graph since 2026-04-19T05:28:09 for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:29:10,857 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Graph returned 0 messages for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:29:10,867 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Outlook mailbox check completed: 完成，通过Graph共处理0封邮件，新增0封
+2026-04-19 13:29:10,867 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:30:09,298 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Start checking Outlook mailbox: id=1, email=nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:30:11,006 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Access token refreshed successfully
+2026-04-19 13:30:11,427 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Fetch Outlook mail via Graph since 2026-04-19T05:29:10 for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:30:12,187 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Graph returned 0 messages for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:30:12,363 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Outlook mailbox check completed: 完成，通过Graph共处理0封邮件，新增0封
+2026-04-19 13:30:12,364 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:30:48,848 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Start checking Outlook mailbox: id=1, email=nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:30:49,828 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Access token refreshed successfully
+2026-04-19 13:30:49,840 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Fetch Outlook mail via Graph since 2026-04-19T05:30:12 for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:30:50,672 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Graph returned 0 messages for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:30:50,681 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Outlook mailbox check completed: 完成，通过Graph共处理0封邮件，新增0封
+2026-04-19 13:30:50,681 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 13:31:49,871 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Start checking Outlook mailbox: id=1, email=nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:31:51,695 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Access token refreshed successfully
+2026-04-19 13:31:51,707 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Fetch Outlook mail via Graph since 2026-04-19T05:30:50 for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:31:54,219 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Graph returned 0 messages for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 13:31:54,234 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Outlook mailbox check completed: 完成，通过Graph共处理0封邮件，新增0封
+2026-04-19 13:31:54,235 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 14:22:46,943 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Start checking Outlook mailbox: id=1, email=nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 14:22:48,790 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Access token refreshed successfully
+2026-04-19 14:22:48,798 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Fetch Outlook mail via Graph since 2026-04-19T05:31:54 for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 14:22:50,588 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Graph returned 4 messages for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 14:22:50,588 - email_utils - WARNING - [ThreadPoolExecutor-1_0] - Graph fetch failed, fallback to IMAP: can't compare offset-naive and offset-aware datetimes
+2026-04-19 14:22:52,993 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Access token refreshed successfully
+2026-04-19 14:22:53,001 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Fetch Outlook IMAP mails for nbdstlfyue+hfcjy@hotmail.com in inbox since 2026-04-19T05:31:54
+2026-04-19 14:22:53,001 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Try connecting Outlook IMAP (1/3)
+2026-04-19 14:22:55,593 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - Outlook IMAP error: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=SEL0PF7BE770696.apcprd01.prod.exchangelabs.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 14:22:56,772 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Try connecting Outlook IMAP (2/3)
+2026-04-19 14:22:58,966 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - Outlook IMAP error: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=TY2PPF193787BBC.apcprd01.prod.exchangelabs.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 14:23:00,068 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Try connecting Outlook IMAP (3/3)
+2026-04-19 14:23:02,053 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - Outlook IMAP error: [Error="NoPrimarySmtpAddress" AuthResultFromPopImapEnd=24 Proxy=TYZPR04MB6954.apcprd04.prod.outlook.com:1993:SSL Service=Imap4] User is authenticated but not connected.
+2026-04-19 14:23:03,223 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Outlook mailbox check completed: 完成，通过IMAP共处理0封邮件，新增0封
+2026-04-19 14:23:03,223 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 14:23:13,329 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Start checking Outlook mailbox: id=1, email=nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 14:23:15,056 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Access token refreshed successfully
+2026-04-19 14:23:15,068 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Fetch Outlook mail via Graph since 2026-04-19T06:23:03 for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 14:23:17,272 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Graph returned 0 messages for nbdstlfyue+hfcjy@hotmail.com
+2026-04-19 14:23:17,281 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Outlook mailbox check completed: 完成，通过Graph共处理0封邮件，新增0封
+2026-04-19 14:23:17,282 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 邮箱 ID 1 处理完成，已从处理队列中移除
+2026-04-19 14:24:12,939 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Start checking Outlook mailbox: id=2, email=nbdstlfyue@hotmail.com
+2026-04-19 14:24:14,849 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Access token refreshed successfully
+2026-04-19 14:24:14,872 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Fetch Outlook mail via Graph for nbdstlfyue@hotmail.com
+2026-04-19 14:24:18,856 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Graph returned 19 messages for nbdstlfyue@hotmail.com
+2026-04-19 14:24:19,092 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Outlook mailbox check completed: 完成，通过Graph共处理19封邮件，新增19封
+2026-04-19 14:24:19,092 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 邮箱 ID 2 处理完成，已从处理队列中移除
+2026-04-19 14:24:47,969 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Start checking Outlook mailbox: id=2, email=nbdstlfyue@hotmail.com
+2026-04-19 14:24:48,771 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Access token refreshed successfully
+2026-04-19 14:24:48,784 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Fetch Outlook mail via Graph since 2026-04-19T06:24:19 for nbdstlfyue@hotmail.com
+2026-04-19 14:24:49,835 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Graph returned 0 messages for nbdstlfyue@hotmail.com
+2026-04-19 14:24:49,846 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Outlook mailbox check completed: 完成，通过Graph共处理0封邮件，新增0封
+2026-04-19 14:24:49,846 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 2 处理完成，已从处理队列中移除
+2026-04-19 14:25:48,989 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Start checking Outlook mailbox: id=2, email=nbdstlfyue@hotmail.com
+2026-04-19 14:25:50,658 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Access token refreshed successfully
+2026-04-19 14:25:50,672 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Fetch Outlook mail via Graph since 2026-04-19T06:24:49 for nbdstlfyue@hotmail.com
+2026-04-19 14:25:51,530 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Graph returned 0 messages for nbdstlfyue@hotmail.com
+2026-04-19 14:25:51,539 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Outlook mailbox check completed: 完成，通过Graph共处理0封邮件，新增0封
+2026-04-19 14:25:51,539 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 2 处理完成，已从处理队列中移除
+2026-04-19 14:27:49,208 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Start checking Outlook mailbox: id=2, email=nbdstlfyue@hotmail.com
+2026-04-19 14:27:51,015 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Access token refreshed successfully
+2026-04-19 14:27:51,023 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Fetch Outlook mail via Graph since 2026-04-19T06:25:51 for nbdstlfyue@hotmail.com
+2026-04-19 14:27:51,915 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Graph returned 0 messages for nbdstlfyue@hotmail.com
+2026-04-19 14:27:51,923 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Outlook mailbox check completed: 完成，通过Graph共处理0封邮件，新增0封
+2026-04-19 14:27:51,923 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 2 处理完成，已从处理队列中移除
+2026-04-19 14:27:56,201 - email_utils - INFO - [Thread-8 (process_request_thread)] - Access token refreshed successfully
+2026-04-19 14:27:57,261 - email_utils - INFO - [Thread-8 (process_request_thread)] - Graph returned 22 messages for nbdstlfyue@hotmail.com (folder=all, page=1)
+2026-04-19 22:25:42,819 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Start checking Outlook mailbox: id=2, email=nbdstlfyue@hotmail.com
+2026-04-19 22:25:43,878 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Access token refreshed successfully
+2026-04-19 22:25:43,891 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Fetch Outlook mail via Graph since 2026-04-19T06:27:51 for nbdstlfyue@hotmail.com
+2026-04-19 22:26:43,914 - email_utils - WARNING - [ThreadPoolExecutor-1_0] - Request failed on attempt 1: HTTPSConnectionPool(host='graph.microsoft.com', port=443): Max retries exceeded with url: /v1.0/me/mailFolders/inbox/messages?%24top=100&%24orderby=receivedDateTime+desc&%24select=id%2Csubject%2CbodyPreview%2Cbody%2CreceivedDateTime%2Cfrom%2CinternetMessageId&%24filter=receivedDateTime+ge+2026-04-19T06%3A27%3A51Z (Caused by ProtocolError('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)))
+2026-04-19 22:27:45,959 - email_utils - WARNING - [ThreadPoolExecutor-1_0] - Request failed on attempt 2: HTTPSConnectionPool(host='graph.microsoft.com', port=443): Max retries exceeded with url: /v1.0/me/mailFolders/inbox/messages?%24top=100&%24orderby=receivedDateTime+desc&%24select=id%2Csubject%2CbodyPreview%2Cbody%2CreceivedDateTime%2Cfrom%2CinternetMessageId&%24filter=receivedDateTime+ge+2026-04-19T06%3A27%3A51Z (Caused by ProtocolError('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)))
+2026-04-19 22:28:47,992 - email_utils - WARNING - [ThreadPoolExecutor-1_0] - Request failed on attempt 3: HTTPSConnectionPool(host='graph.microsoft.com', port=443): Max retries exceeded with url: /v1.0/me/mailFolders/inbox/messages?%24top=100&%24orderby=receivedDateTime+desc&%24select=id%2Csubject%2CbodyPreview%2Cbody%2CreceivedDateTime%2Cfrom%2CinternetMessageId&%24filter=receivedDateTime+ge+2026-04-19T06%3A27%3A51Z (Caused by ProtocolError('Connection aborted.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)))
+2026-04-19 22:30:46,555 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Start checking Outlook mailbox: id=2, email=nbdstlfyue@hotmail.com
+2026-04-19 22:30:47,594 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Access token refreshed successfully
+2026-04-19 22:30:47,607 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Fetch Outlook mail via Graph since 2026-04-19T06:27:51 for nbdstlfyue@hotmail.com
+2026-04-19 22:56:05,865 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Start checking Outlook mailbox via IMAP only: id=2, email=nbdstlfyue@hotmail.com
+2026-04-19 22:56:06,807 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Access token refreshed successfully
+2026-04-19 22:56:06,816 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Fetch Outlook IMAP mails for nbdstlfyue@hotmail.com in inbox since 2026-04-19T06:27:51
+2026-04-19 22:56:06,816 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Try connecting Outlook IMAP (1/3)
+2026-04-19 22:56:11,819 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - Fetch Outlook IMAP mails failed: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1020)
+2026-04-19 22:56:12,820 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Try connecting Outlook IMAP (2/3)
+2026-04-19 22:56:17,827 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - Fetch Outlook IMAP mails failed: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1020)
+2026-04-19 22:56:18,828 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Try connecting Outlook IMAP (3/3)
+2026-04-19 22:56:23,831 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - Fetch Outlook IMAP mails failed: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1020)
+2026-04-19 22:56:24,839 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Outlook mailbox IMAP check completed: 完成，通过IMAP共处理0封邮件，新增0封
+2026-04-19 22:56:24,839 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 2 处理完成，已从处理队列中移除
+2026-04-19 22:56:59,164 - email_utils - INFO - [Thread-8 (process_request_thread)] - Access token refreshed successfully
+2026-04-19 22:57:06,886 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Start checking Outlook mailbox via IMAP only: id=2, email=nbdstlfyue@hotmail.com
+2026-04-19 22:57:07,912 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Access token refreshed successfully
+2026-04-19 22:57:07,929 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Fetch Outlook IMAP mails for nbdstlfyue@hotmail.com in inbox since 2026-04-19T14:56:24
+2026-04-19 22:57:07,930 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Try connecting Outlook IMAP (1/3)
+2026-04-19 22:57:12,934 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - Fetch Outlook IMAP mails failed: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1020)
+2026-04-19 22:57:13,935 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Try connecting Outlook IMAP (2/3)
+2026-04-19 22:57:18,939 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - Fetch Outlook IMAP mails failed: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1020)
+2026-04-19 22:57:19,939 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Try connecting Outlook IMAP (3/3)
+2026-04-19 22:57:24,944 - email_utils - ERROR - [ThreadPoolExecutor-1_0] - Fetch Outlook IMAP mails failed: [SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1020)
+2026-04-19 22:57:25,952 - email_utils - INFO - [ThreadPoolExecutor-1_0] - Outlook mailbox IMAP check completed: 完成，通过IMAP共处理0封邮件，新增0封
+2026-04-19 22:57:25,952 - email_utils - INFO - [ThreadPoolExecutor-1_0] - 邮箱 ID 2 处理完成，已从处理队列中移除
+2026-04-19 23:12:56,336 - email_utils - INFO - [Thread-11 (process_request_thread)] - Access token refreshed successfully

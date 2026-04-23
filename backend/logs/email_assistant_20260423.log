@@ -1,0 +1,35 @@
+2026-04-23 22:11:57,023 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Start checking Outlook mailbox via IMAP only: id=2, email=nbdstlfyue@hotmail.com
+2026-04-23 22:11:59,992 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Access token refreshed successfully
+2026-04-23 22:11:59,999 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Fetch Outlook IMAP mails for nbdstlfyue@hotmail.com in inbox since 2026-04-19T14:57:25
+2026-04-23 22:11:59,999 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Try connecting Outlook IMAP (1/3)
+2026-04-23 22:12:03,295 - email_utils - ERROR - [ThreadPoolExecutor-0_0] - Outlook IMAP error: [Error="UserDisabled" AuthResult=27 Proxy=DM5PR03MB3210.namprd03.PROD.OUTLOOK.COM:1993:SSL MailboxBE=DM5PR03MB3210.namprd03.PROD.OUTLOOK.COM Service=Imap4] User is authenticated but not connected.
+2026-04-23 22:12:04,430 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Try connecting Outlook IMAP (2/3)
+2026-04-23 22:12:07,024 - email_utils - ERROR - [ThreadPoolExecutor-0_0] - Outlook IMAP error: [Error="UserDisabled" AuthResult=27 Proxy=DM5PR03MB3210.namprd03.PROD.OUTLOOK.COM:1993:SSL MailboxBE=DM5PR03MB3210.namprd03.PROD.OUTLOOK.COM Service=Imap4] User is authenticated but not connected.
+2026-04-23 22:12:08,262 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Try connecting Outlook IMAP (3/3)
+2026-04-23 22:12:10,886 - email_utils - ERROR - [ThreadPoolExecutor-0_0] - Outlook IMAP error: [Error="UserDisabled" AuthResult=27 Proxy=DM5PR03MB3210.namprd03.PROD.OUTLOOK.COM:1993:SSL MailboxBE=DM5PR03MB3210.namprd03.PROD.OUTLOOK.COM Service=Imap4] User is authenticated but not connected.
+2026-04-23 22:12:12,012 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Outlook mailbox IMAP check completed: 完成，通过IMAP共处理0封邮件，新增0封
+2026-04-23 22:12:12,012 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 邮箱 ID 2 处理完成，已从处理队列中移除
+2026-04-23 22:12:25,696 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Start checking Outlook mailbox via IMAP only: id=2, email=nbdstlfyue@hotmail.com
+2026-04-23 22:12:27,289 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Access token refreshed successfully
+2026-04-23 22:12:27,304 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Fetch Outlook IMAP mails for nbdstlfyue@hotmail.com in inbox since 2026-04-23T14:12:12
+2026-04-23 22:12:27,305 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Try connecting Outlook IMAP (1/3)
+2026-04-23 22:12:29,702 - email_utils - ERROR - [ThreadPoolExecutor-0_0] - Outlook IMAP error: [Error="UserDisabled" AuthResult=27 Proxy=DM5PR03MB3210.namprd03.prod.outlook.com:1993:SSL MailboxBE=DM5PR03MB3210.namprd03.prod.outlook.com Service=Imap4] User is authenticated but not connected.
+2026-04-23 22:12:30,816 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Try connecting Outlook IMAP (2/3)
+2026-04-23 22:12:33,244 - email_utils - ERROR - [ThreadPoolExecutor-0_0] - Outlook IMAP error: [Error="UserDisabled" AuthResult=27 Proxy=DM5PR03MB3210.namprd03.prod.outlook.com:1993:SSL MailboxBE=DM5PR03MB3210.namprd03.prod.outlook.com Service=Imap4] User is authenticated but not connected.
+2026-04-23 22:12:34,358 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Try connecting Outlook IMAP (3/3)
+2026-04-23 22:12:36,774 - email_utils - ERROR - [ThreadPoolExecutor-0_0] - Outlook IMAP error: [Error="UserDisabled" AuthResult=27 Proxy=DM5PR03MB3210.namprd03.prod.outlook.com:1993:SSL MailboxBE=DM5PR03MB3210.namprd03.prod.outlook.com Service=Imap4] User is authenticated but not connected.
+2026-04-23 22:12:37,912 - email_utils - INFO - [ThreadPoolExecutor-0_0] - Outlook mailbox IMAP check completed: 完成，通过IMAP共处理0封邮件，新增0封
+2026-04-23 22:12:37,912 - email_utils - INFO - [ThreadPoolExecutor-0_0] - 邮箱 ID 2 处理完成，已从处理队列中移除
+2026-04-23 22:14:26,989 - email_utils - INFO - [Thread-13 (process_request_thread)] - Access token refreshed successfully
+2026-04-23 22:14:30,898 - email_utils - INFO - [Thread-13 (process_request_thread)] - Graph returned 29 messages for nbdstlfyue@hotmail.com (folder=all, page=1)
+2026-04-23 22:14:42,805 - email_utils - INFO - [Thread-15 (process_request_thread)] - Access token refreshed successfully
+2026-04-23 22:14:44,511 - email_utils - INFO - [Thread-15 (process_request_thread)] - Graph returned 29 messages for nbdstlfyue@hotmail.com (folder=all, page=1)
+2026-04-23 22:35:51,047 - email_utils - INFO - [Thread-22 (process_request_thread)] - Access token refreshed successfully
+2026-04-23 22:35:53,619 - email_utils - INFO - [Thread-22 (process_request_thread)] - Graph returned 29 messages for nbdstlfyue@hotmail.com (folder=all, page=1)
+2026-04-23 22:54:27,618 - email_utils - INFO - [Thread-29 (process_request_thread)] - Access token refreshed successfully
+2026-04-23 22:54:30,637 - email_utils - INFO - [Thread-29 (process_request_thread)] - Graph returned 29 messages for nbdstlfyue@hotmail.com (folder=all, page=1)
+2026-04-23 22:57:59,482 - email_utils - INFO - [Thread-32 (process_request_thread)] - Access token refreshed successfully
+2026-04-23 22:58:02,995 - email_utils - INFO - [Thread-32 (process_request_thread)] - Graph returned 29 messages for nbdstlfyue@hotmail.com (folder=all, page=1)
+2026-04-23 23:39:13,480 - email_utils - INFO - [Thread-40 (process_request_thread)] - Access token refreshed successfully
+2026-04-23 23:39:50,271 - email_utils - INFO - [Thread-11 (process_request_thread)] - Access token refreshed successfully
+2026-04-23 23:39:56,070 - email_utils - INFO - [Thread-11 (process_request_thread)] - Graph returned 29 messages for nbdstlfyue@hotmail.com (folder=all, page=1)
