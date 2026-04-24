@@ -1,103 +1,128 @@
 <template>
   <el-config-provider :locale="zhCn">
     <div class="app-container">
-      <el-container>
-        <el-header class="app-header" :class="{ 'scrolled': isScrolled }">
-          <div class="header-left">
-            <router-link to="/" class="logo-link">
-              <h1>花火邮箱助手</h1>
-            </router-link>
-          </div>
+      <div class="pointer-events-none absolute inset-0 overflow-hidden">
+        <div class="floating-orb -left-20 top-20 h-56 w-56 bg-cyan-300/35"></div>
+        <div class="floating-orb right-0 top-0 h-72 w-72 bg-emerald-300/25"></div>
+        <div class="floating-orb bottom-16 left-1/3 h-64 w-64 bg-sky-400/15"></div>
+      </div>
 
-          <div class="header-right">
-            <!-- 用户未登录状态 -->
-            <template v-if="!isAuthenticated">
-              <router-link to="/login">
-                <el-button type="primary" plain>登录</el-button>
-              </router-link>
-              <router-link to="/register">
-                <el-button type="primary">注册</el-button>
-              </router-link>
-            </template>
+      <el-container class="app-shell">
+        <el-header class="app-header">
+          <div class="app-header-inner">
+            <div class="shell-panel app-header-panel" :class="{ 'is-scrolled': isScrolled }">
+              <div class="header-left">
+                <router-link to="/" class="logo-link">
+                  <div class="logo-mark">FM</div>
+                  <div class="logo-copy">
+                    <span class="logo-kicker">Mail Control Center</span>
+                    <h1>花火邮箱助手</h1>
+                  </div>
+                </router-link>
 
-            <!-- 用户已登录状态 -->
-            <template v-else>
-              <el-dropdown @command="handleUserCommand">
-                <span class="user-dropdown-link">
-                  {{ currentUser ? currentUser.username : '用户' }}
-                  <el-icon><arrow-down /></el-icon>
-                </span>
-                <template #dropdown>
-                  <el-dropdown-menu>
-                    <el-dropdown-item command="account">账户设置</el-dropdown-item>
-                    <el-dropdown-item v-if="isAdmin" command="admin">用户管理</el-dropdown-item>
-                    <el-dropdown-item divided command="logout">退出登录</el-dropdown-item>
-                  </el-dropdown-menu>
+                <div class="status-pill lg-only">
+                  <span class="status-dot" :class="{ online: websocketConnected }"></span>
+                  <span>{{ websocketConnected ? '实时连接正常' : '等待连接服务器' }}</span>
+                </div>
+              </div>
+
+              <div class="header-right">
+                <template v-if="!isAuthenticated">
+                  <router-link to="/login">
+                    <el-button class="shell-button shell-button-secondary">登录</el-button>
+                  </router-link>
+                  <router-link to="/register">
+                    <el-button class="shell-button shell-button-primary">注册</el-button>
+                  </router-link>
                 </template>
-              </el-dropdown>
-            </template>
 
-            <div class="connection-status">
-              <el-tag :type="websocketConnected ? 'success' : 'danger'" effect="dark">
-                {{ websocketConnected ? '已连接' : '未连接' }}
-              </el-tag>
+                <template v-else>
+                  <el-dropdown @command="handleUserCommand">
+                    <span class="user-dropdown-link">
+                      <span class="user-avatar">{{ userInitial }}</span>
+                      <span class="user-name">{{ currentUser ? currentUser.username : '用户' }}</span>
+                      <el-icon><ArrowDown /></el-icon>
+                    </span>
+                    <template #dropdown>
+                      <el-dropdown-menu>
+                        <el-dropdown-item command="account">账户设置</el-dropdown-item>
+                        <el-dropdown-item v-if="isAdmin" command="admin">用户管理</el-dropdown-item>
+                        <el-dropdown-item divided command="logout">退出登录</el-dropdown-item>
+                      </el-dropdown-menu>
+                    </template>
+                  </el-dropdown>
+                </template>
+
+                <div class="connection-status">
+                  <el-tag :type="websocketConnected ? 'success' : 'danger'" effect="dark" round>
+                    {{ websocketConnected ? '在线' : '离线' }}
+                  </el-tag>
+                </div>
+              </div>
+            </div>
+
+            <div v-if="isAuthenticated" class="shell-panel nav-panel">
+              <el-menu
+                mode="horizontal"
+                :router="true"
+                :default-active="$route.path"
+                class="app-nav"
+              >
+                <el-menu-item index="/">
+                  <el-icon><HomeFilled /></el-icon>
+                  <span>首页</span>
+                </el-menu-item>
+                <el-menu-item index="/emails">
+                  <el-icon><Message /></el-icon>
+                  <span>邮箱管理</span>
+                </el-menu-item>
+                <el-menu-item index="/search">
+                  <el-icon><Search /></el-icon>
+                  <span>邮件搜索</span>
+                </el-menu-item>
+                <el-menu-item v-if="isAdmin" index="/admin/users">
+                  <el-icon><UserFilled /></el-icon>
+                  <span>用户管理</span>
+                </el-menu-item>
+                <el-menu-item index="/about">
+                  <el-icon><InfoFilled /></el-icon>
+                  <span>关于</span>
+                </el-menu-item>
+              </el-menu>
             </div>
           </div>
         </el-header>
 
-        <!-- 导航菜单 -->
-        <el-menu
-          v-if="isAuthenticated"
-          mode="horizontal"
-          :router="true"
-          :default-active="$route.path"
-          class="app-nav"
-        >
-          <el-menu-item index="/">
-            <el-icon><HomeFilled /></el-icon>首页
-          </el-menu-item>
-          <el-menu-item index="/emails">
-            <el-icon><Message /></el-icon>邮箱管理
-          </el-menu-item>
-          <el-menu-item index="/search">
-            <el-icon><Search /></el-icon>邮件搜索
-          </el-menu-item>
-          <el-menu-item index="/admin/users" v-if="isAdmin">
-            <el-icon><UserFilled /></el-icon>用户管理
-          </el-menu-item>
-          <el-menu-item index="/about">
-            <el-icon><InfoFilled /></el-icon>关于
-          </el-menu-item>
-        </el-menu>
-
-        <el-main>
-          <router-view v-slot="{ Component }" v-if="!initializing">
-            <transition name="fade" mode="out-in">
-              <component :is="Component" />
-            </transition>
-          </router-view>
-          <div v-else class="loading-container">
-            <el-skeleton :rows="6" animated />
+        <el-main class="app-main">
+          <div class="app-main-inner">
+            <router-view v-slot="{ Component }" v-if="!initializing">
+              <transition name="fade" mode="out-in">
+                <component :is="Component" />
+              </transition>
+            </router-view>
+            <div v-else class="loading-container page-shell rounded-[28px] p-6 sm:p-8">
+              <el-skeleton :rows="7" animated />
+            </div>
           </div>
         </el-main>
 
         <el-footer class="app-footer">
-          花火邮箱助手 &copy; 2025
+          <div class="shell-panel footer-panel">
+            <p>花火邮箱助手</p>
+            <span>更清爽的邮箱管理体验</span>
+          </div>
         </el-footer>
       </el-container>
 
-      <!-- 通知组件 -->
       <Notifications />
 
-      <!-- 调试工具 -->
       <div v-if="showDebugTools" class="debug-tools-container">
         <DebugTools />
       </div>
 
-      <!-- 调试工具开关 -->
       <div class="debug-tools-toggle" @click="toggleDebugTools">
         <el-tooltip content="调试工具" placement="left">
-          <el-button type="primary" circle size="small">
+          <el-button class="debug-button" circle>
             <el-icon><Setting /></el-icon>
           </el-button>
         </el-tooltip>
@@ -107,104 +132,93 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, computed, watch } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { useStore } from 'vuex'
 import { ElConfigProvider, ElMessage } from 'element-plus'
-import { ArrowDown, Search, Message, HomeFilled, InfoFilled, UserFilled, Setting } from '@element-plus/icons-vue'
+import {
+  ArrowDown,
+  HomeFilled,
+  InfoFilled,
+  Message,
+  Search,
+  Setting,
+  UserFilled
+} from '@element-plus/icons-vue'
 import { useRouter } from 'vue-router'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import websocket from '@/services/websocket'
-import Notifications from './components/Notifications.vue'
-import DebugTools from './components/DebugTools.vue'
+import DebugTools from '@/components/DebugTools.vue'
+import Notifications from '@/components/Notifications.vue'
 
-// 初始化状态
 const initializing = ref(true)
-const isConnected = ref(false)
 const isScrolled = ref(false)
 const showDebugTools = ref(false)
 
-// 使用Vuex来管理状态
 const store = useStore()
 const router = useRouter()
 
-// 计算属性
 const websocketConnected = computed(() => store.state.websocketConnected)
 const isAuthenticated = computed(() => store.getters['auth/isAuthenticated'])
 const currentUser = computed(() => store.getters['auth/currentUser'])
-const isAdmin = computed(() => {
-  const adminStatus = store.getters['auth/isAdmin']
-  console.log('管理员状态检查:', adminStatus, '当前用户:', store.getters['auth/currentUser'])
-  return adminStatus
+const isAdmin = computed(() => store.getters['auth/isAdmin'])
+const userInitial = computed(() => {
+  const username = currentUser.value?.username || 'U'
+  return username.slice(0, 1).toUpperCase()
 })
 
-// 监听滚动事件
 const handleScroll = () => {
-  isScrolled.value = window.scrollY > 10
+  isScrolled.value = window.scrollY > 8
 }
 
-// 切换调试工具显示
 const toggleDebugTools = () => {
   showDebugTools.value = !showDebugTools.value
-  // 保存状态到localStorage
   localStorage.setItem('show_debug_tools', showDebugTools.value ? 'true' : 'false')
 }
 
-// 初始化认证状态
 const initializeAuth = async () => {
   initializing.value = true
 
   if (isAuthenticated.value) {
     try {
-      // 强制获取当前用户最新信息
-      console.log('初始化认证状态 - 获取最新用户信息')
       await store.dispatch('auth/getCurrentUser')
-      console.log('用户信息更新完成，当前用户:', currentUser.value, '管理员状态:', isAdmin.value)
     } catch (error) {
       console.error('获取用户信息失败:', error)
     }
-  } else {
-    console.log('用户未认证，跳过获取用户信息')
   }
 
   initializing.value = false
 }
 
-// 用户下拉菜单命令处理
 const handleUserCommand = (command) => {
-  switch (command) {
-    case 'account':
-      router.push('/account')
-      break
-    case 'admin':
-      router.push('/admin/users')
-      break
-    case 'logout':
-      handleLogout()
-      break
+  if (command === 'account') {
+    router.push('/account')
+    return
+  }
+
+  if (command === 'admin') {
+    router.push('/admin/users')
+    return
+  }
+
+  if (command === 'logout') {
+    handleLogout()
   }
 }
 
-// 退出登录
 const handleLogout = async () => {
   try {
     await store.dispatch('auth/logout')
     router.push('/login')
     ElMessage({
       type: 'success',
-      message: '已成功退出登录'
+      message: '已退出登录'
     })
   } catch (error) {
-    console.error('登出失败:', error)
+    console.error('退出登录失败:', error)
     ElMessage.error('退出登录失败')
   }
 }
 
-// 更新连接状态
-const updateConnectionStatus = () => {
-  isConnected.value = websocket.isConnected
-}
-
-// 监听WebSocket连接变化
 const handleConnect = () => {
   store.commit('SET_WEBSOCKET_CONNECTED', true)
 }
@@ -213,346 +227,416 @@ const handleDisconnect = () => {
   store.commit('SET_WEBSOCKET_CONNECTED', false)
 }
 
-// 监听认证状态变化
 watch(isAuthenticated, (newValue) => {
-  // 认证状态发生变化时，重新处理WebSocket连接
   if (newValue) {
     if (!websocket.isConnected) {
       websocket.connect()
     }
-  } else {
-    websocket.disconnect()
+    return
   }
+
+  websocket.disconnect()
 })
 
-// 组件挂载时连接WebSocket和初始化认证
 onMounted(async () => {
-  // 初始化认证状态
   await initializeAuth()
 
-  // 连接处理
-  websocket.onConnect(() => {
-    isConnected.value = true
-  })
-
-  // 断开连接处理
-  websocket.onDisconnect(() => {
-    isConnected.value = false
-  })
-
-  // 注册WebSocket事件处理器
   websocket.onConnect(handleConnect)
   websocket.onDisconnect(handleDisconnect)
 
-  // 确保WebSocket连接（仅在用户已认证时）
   if (isAuthenticated.value && !websocket.isConnected) {
     websocket.connect()
   }
 
-  // 添加滚动监听
   window.addEventListener('scroll', handleScroll)
-
-  // 初始化调试工具状态
   showDebugTools.value = localStorage.getItem('show_debug_tools') === 'true'
 
-  // 设置Cookie策略
   if (!document.cookie.includes('CookieConsent')) {
-    document.cookie = "CookieConsent=true; SameSite=None; Secure; Partitioned; Path=/;";
+    document.cookie = 'CookieConsent=true; SameSite=None; Secure; Partitioned; Path=/;'
   }
 })
 
-// 组件卸载时断开WebSocket连接
 onUnmounted(() => {
   websocket.offConnect(handleConnect)
   websocket.offDisconnect(handleDisconnect)
   websocket.disconnect()
-
-  // 移除滚动监听
   window.removeEventListener('scroll', handleScroll)
 })
 </script>
 
-<style>
-/* 全局样式 */
-:root {
-  --primary-color: #3B82F6;
-  --success-color: #22C55E;
-  --warning-color: #F59E0B;
-  --danger-color: #EF4444;
-  --info-color: #64748B;
-  --text-color: #1E293B;
-  --border-color: #E2E8F0;
-  --background-color: #F8FAFC;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-  color: var(--text-color);
-  background-color: var(--background-color);
-  line-height: 1.5;
-  min-height: 100vh;
-}
-
+<style scoped>
 .app-container {
+  position: relative;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+  overflow: hidden;
 }
 
-.el-container {
-  flex: 1;
+.app-shell {
+  position: relative;
   min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-.el-main {
-  flex: 1;
-  padding: 20px;
-  background-color: var(--background-color);
+  background: transparent;
 }
 
 .app-header {
-  background-color: white;
-  border-bottom: 1px solid var(--border-color);
+  height: auto !important;
+  padding: 0 !important;
+  background: transparent;
+}
+
+.app-header-inner,
+.app-main-inner,
+.app-footer {
+  width: min(1440px, 100%);
+  margin: 0 auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.app-header-inner {
+  padding-top: 1rem;
+  padding-bottom: 0.35rem;
+}
+
+.app-main {
+  padding: 0 0 1.75rem !important;
+  background: transparent;
+}
+
+.app-main-inner {
+  padding-top: 0.5rem;
+}
+
+.shell-panel {
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(248, 250, 252, 0.76)),
+    radial-gradient(circle at top right, rgba(56, 189, 248, 0.15), transparent 30%);
+  box-shadow: 0 30px 80px -40px rgba(15, 23, 42, 0.42);
+  backdrop-filter: blur(18px);
+}
+
+.app-header-panel {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-  height: 60px !important;
-  box-shadow: var(--box-shadow-sm);
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  transition: all var(--transition-normal);
+  gap: 1rem;
+  border-radius: 1.75rem;
+  padding: 1rem 1.2rem;
+  transition: box-shadow var(--transition-normal), transform var(--transition-normal);
 }
 
-.app-header.scrolled {
-  box-shadow: var(--box-shadow);
+.app-header-panel.is-scrolled {
+  box-shadow: 0 34px 95px -46px rgba(15, 23, 42, 0.5);
 }
 
-.header-left {
-  display: flex;
-  align-items: center;
-}
-
+.header-left,
 .header-right {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 1rem;
 }
 
-.app-header h1 {
-  font-size: 22px;
-  color: var(--primary-color);
-  margin: 0;
+.header-left {
+  min-width: 0;
+}
+
+.logo-link {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.logo-mark {
+  display: grid;
+  height: 3rem;
+  width: 3rem;
+  place-items: center;
+  border-radius: 1rem;
+  background: linear-gradient(135deg, #0f172a 0%, #0f766e 55%, #67e8f9 100%);
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  box-shadow: 0 18px 30px -18px rgba(15, 118, 110, 0.7);
+}
+
+.logo-copy {
+  min-width: 0;
+}
+
+.logo-kicker {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.logo-copy h1 {
+  font-size: 1.18rem;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: rgba(255, 255, 255, 0.65);
+  padding: 0.65rem 0.95rem;
+  color: #475569;
+  font-size: 0.9rem;
+}
+
+.status-dot {
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 999px;
+  background: #f97316;
+  box-shadow: 0 0 0 0.35rem rgba(249, 115, 22, 0.12);
+}
+
+.status-dot.online {
+  background: #22c55e;
+  box-shadow: 0 0 0 0.35rem rgba(34, 197, 94, 0.12);
+}
+
+.shell-button {
+  border: none;
+  border-radius: 999px;
+  padding: 0.85rem 1.15rem;
   font-weight: 600;
-  letter-spacing: -0.5px;
-  position: relative;
+  box-shadow: none;
 }
 
-.app-header h1::after {
-  content: '';
-  position: absolute;
-  bottom: -4px;
-  left: 0;
-  width: 30px;
-  height: 2px;
-  background-color: var(--primary-color);
-  border-radius: var(--border-radius-full);
-  transition: width var(--transition-normal);
+.shell-button-primary {
+  background: linear-gradient(135deg, #0f766e, #0891b2);
+  color: white;
 }
 
-.app-header h1:hover::after {
-  width: 100%;
+.shell-button-secondary {
+  background: rgba(255, 255, 255, 0.9);
+  color: #0f172a;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+.user-dropdown-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  cursor: pointer;
+  border-radius: 999px;
+  border: 1px solid rgba(148, 163, 184, 0.18);
+  background: rgba(255, 255, 255, 0.78);
+  padding: 0.45rem 0.85rem 0.45rem 0.45rem;
+  color: #0f172a;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.user-dropdown-link:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 28px -24px rgba(15, 23, 42, 0.42);
+}
+
+.user-avatar {
+  display: grid;
+  height: 2rem;
+  width: 2rem;
+  place-items: center;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #cffafe, #99f6e4);
+  color: #0f172a;
+  font-size: 0.82rem;
+  font-weight: 800;
+}
+
+.user-name {
+  max-width: 12rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
 }
 
 .connection-status {
   display: flex;
   align-items: center;
-  margin-left: 16px;
 }
 
-.user-dropdown-link {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  font-size: 14px;
-  color: var(--text-color);
-  padding: 6px 12px;
-  border-radius: var(--border-radius);
-  transition: background-color var(--transition-fast);
-}
-
-.user-dropdown-link:hover {
-  background-color: var(--border-color-lighter);
-}
-
-.user-dropdown-link .el-icon {
-  margin-left: 4px;
-  transition: transform var(--transition-fast);
-}
-
-.user-dropdown-link:hover .el-icon {
-  transform: rotate(180deg);
+.nav-panel {
+  margin-top: 0.9rem;
+  overflow-x: auto;
+  border-radius: 1.5rem;
+  padding: 0.45rem 0.55rem;
 }
 
 .app-nav {
-  border-bottom: 1px solid var(--border-color);
-  box-shadow: var(--box-shadow-sm);
-  background-color: white;
+  --el-menu-bg-color: transparent;
+  --el-menu-hover-bg-color: rgba(226, 232, 240, 0.55);
+  --el-menu-active-color: #0f172a;
+  --el-menu-text-color: #475569;
+  border-bottom: none !important;
+  background: transparent !important;
 }
 
-.app-nav .el-menu-item {
-  transition: all var(--transition-normal);
-  border-bottom: 2px solid transparent;
+:deep(.app-nav.el-menu--horizontal) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  border-bottom: none;
 }
 
-.app-nav .el-menu-item.is-active {
-  color: var(--primary-color);
-  border-bottom-color: var(--primary-color);
+:deep(.app-nav.el-menu--horizontal > .el-menu-item) {
+  height: 2.85rem;
+  line-height: 2.85rem;
+  border-bottom: none !important;
+  border-radius: 999px;
+  margin: 0;
+  color: #475569;
+  font-weight: 600;
+  transition: background-color var(--transition-fast), transform var(--transition-fast), color var(--transition-fast);
 }
 
-.app-nav .el-menu-item:hover {
-  background-color: var(--border-color-lighter);
+:deep(.app-nav.el-menu--horizontal > .el-menu-item:hover) {
+  transform: translateY(-1px);
 }
 
-.app-nav .el-icon {
-  margin-right: 4px;
+:deep(.app-nav.el-menu--horizontal > .el-menu-item.is-active) {
+  background: linear-gradient(135deg, rgba(15, 118, 110, 0.12), rgba(8, 145, 178, 0.16));
+  color: #0f172a;
+  box-shadow: inset 0 0 0 1px rgba(15, 118, 110, 0.12);
 }
 
-.app-footer {
-  text-align: center;
-  color: var(--info-color);
-  font-size: 14px;
-  padding: 20px 0 !important;
-  background-color: white;
-  border-top: 1px solid var(--border-color);
-  margin-top: auto;
+:deep(.app-nav .el-icon) {
+  margin-right: 0.45rem;
 }
 
 .loading-container {
-  padding: 40px 0;
+  min-height: 20rem;
 }
 
-/* 添加页面过渡动画 */
+.footer-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  border-radius: 1.5rem;
+  padding: 1rem 1.2rem;
+  color: #475569;
+}
+
+.footer-panel p {
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.footer-panel span {
+  font-size: 0.92rem;
+}
+
+.debug-tools-container {
+  position: fixed;
+  right: 1.2rem;
+  bottom: 5.25rem;
+  z-index: 2000;
+  width: min(420px, 92vw);
+  border-radius: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  background: rgba(255, 255, 255, 0.84);
+  box-shadow: 0 26px 90px -38px rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(18px);
+}
+
+.debug-tools-toggle {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.35rem;
+  z-index: 2001;
+}
+
+.debug-button {
+  border: none;
+  background: linear-gradient(135deg, #0f172a, #0f766e) !important;
+  color: white !important;
+  box-shadow: 0 24px 50px -26px rgba(15, 118, 110, 0.8);
+}
+
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
 .fade-enter-from,
 .fade-leave-to {
   opacity: 0;
+  transform: translateY(6px);
 }
 
-/* 按钮和标签样式增强 */
-.el-button {
-  border-radius: var(--border-radius);
-  transition: all var(--transition-fast);
+@media (max-width: 1024px) {
+  .lg-only {
+    display: none;
+  }
 }
 
-.el-button:hover {
-  transform: translateY(-1px);
-  box-shadow: var(--box-shadow-sm);
-}
-
-.el-tag {
-  border-radius: var(--border-radius-full);
-  padding: 0 10px;
-  height: 24px;
-  line-height: 22px;
-  font-size: 12px;
-}
-
-/* 表单元素样式 */
-.el-input__inner,
-.el-textarea__inner {
-  border-radius: var(--border-radius);
-  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
-}
-
-.el-input__inner:focus,
-.el-textarea__inner:focus {
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
-}
-
-/* 响应式布局 */
 @media (max-width: 768px) {
-  .header-right {
-    gap: 8px;
+  .app-header-inner,
+  .app-main-inner,
+  .app-footer {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
   }
 
-  .app-header h1 {
-    font-size: 18px;
+  .app-header-panel,
+  .footer-panel {
+    border-radius: 1.35rem;
+  }
+
+  .app-header-panel {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .header-left,
+  .header-right {
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .header-right {
+    gap: 0.75rem;
   }
 
   .connection-status {
-    margin-left: 8px;
+    margin-left: auto;
   }
 
-  .app-nav .el-menu-item {
-    padding: 0 10px;
+  .footer-panel {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
 @media (max-width: 576px) {
+  .logo-copy h1 {
+    font-size: 1rem;
+  }
+
   .header-right {
-    flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
   }
 
   .connection-status {
-    margin-top: 10px;
     margin-left: 0;
   }
 
-  .app-nav .el-menu-item {
-    padding: 0 8px;
-    font-size: 14px;
+  :deep(.app-nav.el-menu--horizontal) {
+    flex-wrap: nowrap;
+    width: max-content;
   }
-
-  .app-nav .el-icon {
-    margin-right: 2px;
-    font-size: 14px;
-  }
-
-  .debug-tools-container {
-    width: 90vw;
-    right: 5vw;
-  }
-}
-
-/* 调试工具样式 */
-.debug-tools-container {
-  position: fixed;
-  bottom: 60px;
-  right: 20px;
-  width: 400px;
-  max-width: 90vw;
-  z-index: 2000;
-  background-color: white;
-  border-radius: var(--border-radius);
-  box-shadow: var(--box-shadow);
-  transition: all var(--transition-normal);
-}
-
-.debug-tools-toggle {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 2001;
-  cursor: pointer;
-  transition: all var(--transition-normal);
-}
-
-.debug-tools-toggle:hover {
-  transform: rotate(45deg);
 }
 </style>

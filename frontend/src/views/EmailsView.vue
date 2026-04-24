@@ -1,10 +1,45 @@
 <template>
   <div class="page-container">
+    <section class="emails-hero">
+      <div class="emails-hero-main page-shell">
+        <div class="emails-hero-copy">
+          <span class="section-kicker">Email Workspace</span>
+          <h1 class="emails-hero-title">邮箱工作台</h1>
+          <p class="emails-hero-description">
+            把账号管理、批量收信和邮件查看整合到同一个更清晰的操作面板里，让高频动作更快找到，也更容易判断当前状态。
+          </p>
+        </div>
+
+        <div class="emails-hero-actions">
+          <el-button type="primary" @click="refreshEmails" :icon="Refresh" class="hero-action hero-action-dark">
+            刷新列表
+          </el-button>
+          <el-button type="success" @click="showAddEmailDialog" :icon="Plus" class="hero-action hero-action-accent">
+            添加邮箱
+          </el-button>
+          <el-button type="info" @click="openAllMailsDialog" :icon="Message" class="hero-action hero-action-light">
+            查看全部邮件
+          </el-button>
+        </div>
+      </div>
+
+      <div class="emails-hero-stats">
+        <article v-for="item in overviewStats" :key="item.label" class="hero-stat-card page-shell">
+          <span class="hero-stat-label">{{ item.label }}</span>
+          <strong class="hero-stat-value">{{ item.value }}</strong>
+          <p class="hero-stat-hint">{{ item.hint }}</p>
+        </article>
+      </div>
+    </section>
+
     <div class="emails-container">
-      <el-card class="email-list-card shadow">
+      <el-card class="email-list-card shadow page-shell">
         <template #header>
           <div class="card-header flex-between">
-            <h2 class="page-title">邮箱列表</h2>
+            <div class="title-group">
+              <h2 class="page-title">邮箱列表</h2>
+              <p class="card-subtitle">统一查看账户、配置、最近检查时间和常用操作。</p>
+            </div>
             <div class="actions flex gap-md">
               <el-button type="primary" @click="refreshEmails" :icon="Refresh" class="hover-scale">
                 刷新列表
@@ -788,6 +823,27 @@ const loading = computed(() => emailsStore.loading)
 const currentEmail = computed(() => emailsStore.getEmailById(emailsStore.currentEmailId))
 const mailRecords = computed(() => emailsStore.currentMailRecords)
 const hasSelectedEmails = computed(() => emailsStore.hasSelectedEmails)
+const selectedCount = computed(() => emailsStore.selectedEmailsCount)
+const processingCount = computed(() =>
+  Object.values(emailsStore.processingEmails || {}).filter((item) => item && item.progress >= 0 && item.progress < 100).length
+)
+const overviewStats = computed(() => [
+  {
+    label: '账户总数',
+    value: emails.value.length,
+    hint: '当前已接入的邮箱账号'
+  },
+  {
+    label: '已选账号',
+    value: selectedCount.value,
+    hint: '用于批量操作的目标数量'
+  },
+  {
+    label: '处理中',
+    value: processingCount.value,
+    hint: '正在收信或同步的任务'
+  }
+])
 const filteredAllMailRecords = computed(() => {
   const query = allMailSearch.value.trim().toLowerCase()
   if (!query) {
@@ -1488,57 +1544,169 @@ onMounted(() => {
 .page-container {
   display: flex;
   flex-direction: column;
+  gap: 1.5rem;
   min-height: 100vh;
-  background-color: var(--bg-color);
+  padding: 0 0 1.25rem;
   overflow-x: hidden;
+}
+
+.emails-hero,
+.emails-container {
+  width: min(1280px, 100%);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.emails-hero {
+  display: grid;
+  gap: 1rem;
+}
+
+.emails-hero-main {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  border-radius: 2rem;
+  padding: 1.75rem;
+}
+
+.emails-hero-copy {
+  max-width: 44rem;
+}
+
+.emails-hero-title {
+  margin-top: 1rem;
+  font-size: clamp(2rem, 3vw, 3rem);
+  line-height: 1.05;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  color: #0f172a;
+}
+
+.emails-hero-description {
+  margin-top: 1rem;
+  max-width: 40rem;
+  font-size: 1rem;
+  line-height: 1.85;
+  color: #475569;
+}
+
+.emails-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.hero-action {
+  min-height: 3rem;
+  border: none;
+  border-radius: 999px;
+  padding: 0 1.2rem;
+  font-weight: 700;
+  box-shadow: none;
+}
+
+.hero-action-dark {
+  background: linear-gradient(135deg, #0f172a, #155e75);
+}
+
+.hero-action-accent {
+  background: linear-gradient(135deg, #0f766e, #0ea5e9);
+}
+
+.hero-action-light {
+  background: rgba(255, 255, 255, 0.8);
+  color: #0f172a;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+}
+
+.emails-hero-stats {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.hero-stat-card {
+  border-radius: 1.5rem;
+  padding: 1.3rem 1.4rem;
+}
+
+.hero-stat-label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+.hero-stat-value {
+  display: block;
+  margin-top: 0.6rem;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #0f172a;
+}
+
+.hero-stat-hint {
+  margin-top: 0.35rem;
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #64748b;
 }
 
 .emails-container {
   flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  padding: 20px;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
 }
 
 .email-list-card {
-  margin-bottom: 20px;
-  transition: all var(--transition-normal);
+  margin-bottom: 1rem;
+  border-radius: 2rem;
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
 }
 
 .card-header {
   width: 100%;
 }
 
+.title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
 .page-title {
-  font-size: 1.5rem;
-  color: var(--primary-color);
+  font-size: 1.6rem;
+  color: #0f172a;
   margin: 0;
-  position: relative;
-  display: inline-block;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
-.page-title::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 40px;
-  height: 3px;
-  background-color: var(--primary-color);
-  border-radius: 999px;
+.card-subtitle {
+  font-size: 0.96rem;
+  line-height: 1.7;
+  color: #64748b;
 }
 
-.email-table {
-  border-radius: var(--border-radius);
+.toolbar {
+  flex-wrap: wrap;
+  padding: 0.85rem;
+  border-radius: 1.35rem;
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0.96), rgba(241, 245, 249, 0.8));
+  border: 1px solid rgba(226, 232, 240, 0.85);
+}
+
+.email-table,
+.mail-list-table {
   overflow: hidden;
+  border-radius: 1.4rem;
 }
 
 .mail-type-tag {
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .password-field {
@@ -1546,11 +1714,11 @@ onMounted(() => {
 }
 
 .password-text {
-  font-family: monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
 }
 
 .password-toggle-btn:hover {
-  transform: scale(1.1);
+  transform: scale(1.08);
 }
 
 .time-field {
@@ -1571,29 +1739,23 @@ onMounted(() => {
 .action-buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
-  justify-content: space-around;
+  gap: 0.4rem;
 }
 
 .action-btn {
-  min-width: 70px;
-  margin: 2px;
+  min-width: 76px;
+  margin: 0;
   white-space: nowrap;
 }
 
 .mail-dialog-header {
-  padding: 0 0 10px 0;
-  border-bottom: 1px solid var(--border-color-light);
+  padding: 0 0 0.9rem 0;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.85);
 }
 
 .email-title {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   margin: 0;
-}
-
-.mail-list-table {
-  border-radius: var(--border-radius);
-  overflow: hidden;
 }
 
 .all-mail-search {
@@ -1651,10 +1813,10 @@ onMounted(() => {
 
 .mail-attachments {
   margin: 10px 0;
-  padding: 10px;
-  background-color: #f0f9eb;
-  border-radius: 4px;
-  border-left: 3px solid #67c23a;
+  padding: 12px;
+  background: linear-gradient(180deg, #f0fdf4, #ecfdf5);
+  border-radius: 1rem;
+  border-left: 3px solid #22c55e;
 }
 
 .attachments-list {
@@ -1673,21 +1835,21 @@ onMounted(() => {
   word-break: break-word;
   overflow-wrap: break-word;
   max-width: 100%;
-  font-family: monospace;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.9rem;
-  line-height: 1.5;
-  padding: 10px;
-  background-color: var(--bg-light);
-  border-radius: var(--border-radius);
+  line-height: 1.7;
+  padding: 14px;
+  background-color: rgba(248, 250, 252, 0.9);
+  border-radius: 1rem;
 }
 
 .html-content {
   max-width: 100%;
   overflow-x: auto;
-  padding: 10px;
-  background-color: var(--bg-light);
-  border-radius: var(--border-radius);
-  line-height: 1.5;
+  padding: 14px;
+  background-color: rgba(248, 250, 252, 0.9);
+  border-radius: 1rem;
+  line-height: 1.6;
 }
 
 .html-content img {
@@ -1721,11 +1883,11 @@ onMounted(() => {
 
 .import-help {
   margin-bottom: 20px;
-  padding: 10px;
-  background-color: var(--bg-light);
-  border-radius: var(--border-radius);
+  padding: 14px;
+  background-color: rgba(248, 250, 252, 0.92);
+  border-radius: 1rem;
   font-size: 0.9rem;
-  line-height: 1.5;
+  line-height: 1.7;
 }
 
 .server-info {
@@ -1735,7 +1897,9 @@ onMounted(() => {
   font-size: 0.85rem;
 }
 
-.server-field, .port-field, .config-info {
+.server-field,
+.port-field,
+.config-info {
   color: var(--secondary-text-color);
 }
 
@@ -1776,10 +1940,117 @@ onMounted(() => {
 }
 
 .hover-scale {
-  transition: transform 0.2s;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .hover-scale:hover:not(:disabled) {
-  transform: scale(1.05);
+  transform: translateY(-1px);
+  box-shadow: 0 18px 28px -22px rgba(15, 23, 42, 0.45);
+}
+
+:deep(.email-list-card.el-card),
+:deep(.mail-list-dialog .el-dialog),
+:deep(.mail-content-dialog .el-dialog),
+:deep(.add-email-dialog .el-dialog) {
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.95), rgba(248, 250, 252, 0.9));
+  box-shadow: 0 28px 80px -42px rgba(15, 23, 42, 0.38);
+  backdrop-filter: blur(18px);
+}
+
+:deep(.email-list-card .el-card__header) {
+  padding: 1.4rem 1.5rem 1rem;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.7);
+}
+
+:deep(.email-list-card .el-card__body) {
+  padding: 0 1.5rem 1.5rem;
+}
+
+:deep(.el-table) {
+  --el-table-header-bg-color: rgba(241, 245, 249, 0.86);
+  --el-table-tr-bg-color: rgba(255, 255, 255, 0.72);
+  --el-table-row-hover-bg-color: rgba(236, 253, 245, 0.72);
+  --el-table-border-color: rgba(226, 232, 240, 0.82);
+  --el-table-text-color: #334155;
+  --el-table-header-text-color: #0f172a;
+}
+
+:deep(.el-table th.el-table__cell) {
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+:deep(.el-table td.el-table__cell) {
+  padding-top: 0.95rem;
+  padding-bottom: 0.95rem;
+}
+
+:deep(.el-dialog) {
+  border-radius: 1.6rem;
+  overflow: hidden;
+}
+
+:deep(.el-dialog__header) {
+  padding: 1.4rem 1.4rem 1rem;
+  margin-right: 0;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.75);
+}
+
+:deep(.el-dialog__body) {
+  padding: 1.25rem 1.4rem 1.4rem;
+}
+
+:deep(.el-dialog__footer) {
+  padding: 0 1.4rem 1.4rem;
+}
+
+@media (max-width: 1024px) {
+  .emails-hero-main {
+    flex-direction: column;
+  }
+
+  .emails-hero-actions {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .emails-hero,
+  .emails-container {
+    padding: 0 0.85rem;
+  }
+
+  .emails-hero-main,
+  .email-list-card {
+    border-radius: 1.5rem;
+  }
+
+  .emails-hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .card-header,
+  .flex-between {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .action-buttons {
+    justify-content: flex-start;
+  }
+
+  :deep(.email-list-card .el-card__header),
+  :deep(.email-list-card .el-card__body) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 }
 </style>
