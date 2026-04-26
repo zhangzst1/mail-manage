@@ -154,6 +154,11 @@ class Database:
             # 检查并添加新字段
             self._check_and_add_column('emails', 'enable_realtime_check', 'INTEGER DEFAULT 0')
             self._check_and_add_column('users', 'password_hash', 'TEXT NOT NULL')
+            self._check_and_add_column('mail_records', 'source', "TEXT DEFAULT 'mail'")
+            self._check_and_add_column('mail_records', 'external_id', 'TEXT')
+            self._check_and_add_column('mail_records', 'body_preview', 'TEXT')
+            self._check_and_add_column('mail_records', 'is_read', 'INTEGER DEFAULT 0')
+            self._check_and_add_column('mail_records', 'parent_folder_id', 'TEXT')
 
             self.conn.commit()
             logger.info(f"初始化数据库表结构: {self.db_path}")
@@ -177,6 +182,23 @@ class Database:
                 self.conn.commit()
         except Exception as e:
             logger.error(f"检查和添加列失败: {str(e)}")
+
+    def _get_table_columns(self, table):
+        """获取表字段名集合，用于兼容旧数据库结构"""
+        try:
+            cursor = self.conn.execute(f"PRAGMA table_info({table})")
+            return {info[1] for info in cursor.fetchall()}
+        except Exception as e:
+            logger.error(f"获取表字段失败: table={table}, error={str(e)}")
+            return set()
+
+    def _ensure_graph_mail_columns(self):
+        """确保 Graph 邮件保存所需的扩展字段存在"""
+        self._check_and_add_column('mail_records', 'source', "TEXT DEFAULT 'mail'")
+        self._check_and_add_column('mail_records', 'external_id', 'TEXT')
+        self._check_and_add_column('mail_records', 'body_preview', 'TEXT')
+        self._check_and_add_column('mail_records', 'is_read', 'INTEGER DEFAULT 0')
+        self._check_and_add_column('mail_records', 'parent_folder_id', 'TEXT')
 
     def _init_system_config(self):
         """初始化系统配置"""
@@ -661,6 +683,54 @@ class Database:
 
         return records
 
+    def get_graph_mail_records(self, email_id, user_id=None, limit=500):
+        """获取指定邮箱通过 Graph 同步到数据库的邮件记录"""
+        logger.debug(f"获取 Graph 邮件记录, ID: {email_id}, limit={limit}")
+
+        if user_id:
+            email = self.get_email_by_id(email_id, user_id)
+            if not email:
+                logger.warning(f"用户ID {user_id} 没有权限访问邮箱ID {email_id}")
+                return []
+
+        try:
+            safe_limit = max(1, min(int(limit or 500), 2000))
+            self._ensure_graph_mail_columns()
+            columns = self._get_table_columns('mail_records')
+            source_filter = "AND COALESCE(source, 'mail') = 'graph'" if 'source' in columns else ""
+            cursor = self.conn.execute(
+                f"""
+                    SELECT *
+                    FROM mail_records
+                    WHERE email_id = ? {source_filter}
+                    ORDER BY received_time DESC
+                    LIMIT ?
+                """,
+                (email_id, safe_limit)
+            )
+
+            records = []
+            for record in cursor.fetchall():
+                record_dict = dict(record)
+
+                try:
+                    if record_dict['content'] and isinstance(record_dict['content'], str):
+                        import json
+                        try:
+                            if record_dict['content'].startswith('{') and record_dict['content'].endswith('}'):
+                                record_dict['content'] = json.loads(record_dict['content'])
+                        except json.JSONDecodeError:
+                            pass
+                except Exception as e:
+                    logger.warning(f"解析 Graph 邮件内容失败: {str(e)}")
+
+                records.append(record_dict)
+
+            return records
+        except Exception as e:
+            logger.error(f"获取 Graph 邮件记录失败: {str(e)}")
+            return []
+
     def get_all_mail_records(self, user_id=None, email_id=None, query=None, limit=20):
         """获取全部邮件记录，可按用户、邮箱、关键字筛选"""
         logger.debug(
@@ -993,6 +1063,143 @@ class Database:
                 continue
 
         logger.info(f"完成保存邮件记录: 总计 {total} 封, 新增 {saved_count} 封")
+        return saved_count
+
+    def save_graph_mail_records(self, email_id: int, mail_records: List[Dict]) -> int:
+        """保存或更新 Graph 邮件记录到数据库"""
+        total = len(mail_records)
+        saved_count = 0
+        self._ensure_graph_mail_columns()
+        columns = self._get_table_columns('mail_records')
+        logger.info(f"开始保存 {total} 封 Graph 邮件到数据库, 邮箱ID: {email_id}")
+
+        for record in mail_records:
+            try:
+                subject = record.get('subject', '(无主题)')
+                sender = record.get('sender', '(未知发件人)')
+                received_time = record.get('received_time')
+                content = record.get('content', '')
+                folder = record.get('folder', 'ALL')
+                has_attachments = 1 if record.get('has_attachments') else 0
+                body_preview = record.get('body_preview', '')
+                is_read = 1 if record.get('is_read') else 0
+                parent_folder_id = record.get('parent_folder_id')
+                external_id = record.get('graph_id') or record.get('external_id')
+
+                if isinstance(content, dict):
+                    import json
+                    content = json.dumps(content, ensure_ascii=False)
+
+                existing = None
+                if external_id and 'external_id' in columns:
+                    existing = self.conn.execute(
+                        """
+                            SELECT id
+                            FROM mail_records
+                            WHERE email_id = ? AND external_id = ?
+                            ORDER BY id DESC
+                            LIMIT 1
+                        """,
+                        (email_id, external_id)
+                    ).fetchone()
+
+                if existing is None:
+                    existing = self.conn.execute(
+                        """
+                            SELECT id
+                            FROM mail_records
+                            WHERE email_id = ? AND sender = ? AND subject = ? AND received_time = ?
+                            ORDER BY id DESC
+                            LIMIT 1
+                        """,
+                        (email_id, sender, subject, received_time)
+                    ).fetchone()
+
+                if existing:
+                    set_clauses = [
+                        "subject = ?",
+                        "sender = ?",
+                        "received_time = ?",
+                        "content = ?",
+                        "folder = ?",
+                        "has_attachments = ?"
+                    ]
+                    values = [
+                        subject,
+                        sender,
+                        received_time,
+                        content,
+                        folder,
+                        has_attachments
+                    ]
+
+                    optional_updates = {
+                        'source': 'graph',
+                        'external_id': external_id,
+                        'body_preview': body_preview,
+                        'is_read': is_read,
+                        'parent_folder_id': parent_folder_id
+                    }
+                    for column, value in optional_updates.items():
+                        if column in columns:
+                            set_clauses.append(f"{column} = ?")
+                            values.append(value)
+
+                    values.append(existing['id'])
+                    self.conn.execute(
+                        f"""
+                            UPDATE mail_records
+                            SET {', '.join(set_clauses)}
+                            WHERE id = ?
+                        """,
+                        values
+                    )
+                else:
+                    insert_columns = [
+                        'email_id',
+                        'subject',
+                        'sender',
+                        'received_time',
+                        'content',
+                        'folder',
+                        'has_attachments'
+                    ]
+                    values = [
+                        email_id,
+                        subject,
+                        sender,
+                        received_time,
+                        content,
+                        folder,
+                        has_attachments
+                    ]
+
+                    optional_inserts = {
+                        'source': 'graph',
+                        'external_id': external_id,
+                        'body_preview': body_preview,
+                        'is_read': is_read,
+                        'parent_folder_id': parent_folder_id
+                    }
+                    for column, value in optional_inserts.items():
+                        if column in columns:
+                            insert_columns.append(column)
+                            values.append(value)
+
+                    placeholders = ', '.join(['?'] * len(insert_columns))
+                    self.conn.execute(
+                        f"""
+                            INSERT INTO mail_records ({', '.join(insert_columns)})
+                            VALUES ({placeholders})
+                        """,
+                        values
+                    )
+                    saved_count += 1
+            except Exception as e:
+                logger.error(f"保存 Graph 邮件记录失败: {str(e)}")
+
+        self.conn.commit()
+        logger.info(f"完成保存 Graph 邮件记录: 总计 {total} 封, 新增 {saved_count} 封")
         return saved_count
 
     def get_all_email_ids(self) -> List[int]:

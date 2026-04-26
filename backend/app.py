@@ -700,7 +700,7 @@ def get_mail_records(current_user, email_id):
 @app.route('/api/emails/<int:email_id>/graph_messages', methods=['GET'])
 @token_required
 def get_graph_messages(current_user, email_id):
-    """通过 Microsoft Graph 直接获取指定邮箱的邮件"""
+    """获取指定邮箱的 Graph 邮件；可选先同步到数据库再读取"""
     try:
         email_info = db.get_email_by_id(email_id, None if current_user['is_admin'] else current_user['id'])
         if not email_info:
@@ -717,33 +717,46 @@ def get_graph_messages(current_user, email_id):
         folder = (request.args.get('folder') or 'all').strip() or 'all'
         top = request.args.get('top', default=100, type=int)
         limit = request.args.get('limit', type=int)
+        sync = str(request.args.get('sync', 'false')).strip().lower() in ('1', 'true', 'yes', 'on')
 
-        session = OutlookMailHandler.create_session()
-        try:
-            access_token = OutlookMailHandler.get_graph_access_token(
-                refresh_token,
-                client_id,
-                session=session
+        saved_count = 0
+        if sync:
+            session = OutlookMailHandler.create_session()
+            try:
+                access_token = OutlookMailHandler.get_graph_access_token(
+                    refresh_token,
+                    client_id,
+                    session=session
+                )
+                if not access_token:
+                    return jsonify({'error': '获取 Graph access token 失败'}), 502
+
+                db.update_email_token(email_id, access_token)
+            finally:
+                session.close()
+
+            messages = OutlookMailHandler.fetch_all_emails_via_graph(
+                email_address=email_info['email'],
+                access_token=access_token,
+                folder=folder,
+                top=top,
+                limit=limit,
             )
-            if not access_token:
-                return jsonify({'error': '获取 Graph access token 失败'}), 502
 
-            db.update_email_token(email_id, access_token)
-        finally:
-            session.close()
+            saved_count = db.save_graph_mail_records(email_id, messages)
 
-        messages = OutlookMailHandler.fetch_all_emails_via_graph(
-            email_address=email_info['email'],
-            access_token=access_token,
-            folder=folder,
-            top=top,
-            limit=limit,
+        messages = db.get_graph_mail_records(
+            email_id,
+            None if current_user['is_admin'] else current_user['id'],
+            limit=limit or 500
         )
 
         return jsonify({
             'email_id': email_id,
             'email': email_info['email'],
             'folder': folder,
+            'sync': sync,
+            'saved_count': saved_count,
             'count': len(messages),
             'messages': messages,
         })

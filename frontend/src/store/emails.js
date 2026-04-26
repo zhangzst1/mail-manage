@@ -103,6 +103,7 @@ export const useEmailsStore = defineStore('emails', {
           if (Array.isArray(data.data)) {
             // 确保每条记录都有必要的字段
             this.currentMailRecords = data.data.map(record => ({
+              ...record,
               id: record.id || Date.now() + Math.random().toString(36).substring(2, 10),
               subject: record.subject || '(无主题)',
               sender: record.sender || '(未知发件人)',
@@ -306,6 +307,7 @@ export const useEmailsStore = defineStore('emails', {
           // 确保返回数据是数组且每条记录格式正确
           if (Array.isArray(response)) {
             this.currentMailRecords = response.map(record => ({
+              ...record,
               id: record.id || Date.now() + Math.random().toString(36).substring(2, 10),
               subject: record.subject || '(无主题)',
               sender: record.sender || '(未知发件人)',

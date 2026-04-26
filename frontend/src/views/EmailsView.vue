@@ -175,7 +175,7 @@
                   v-if="canUseGraph(scope.row)"
                   type="info"
                   size="small"
-                  @click="handleViewGraphMails(scope.row)"
+                  @click="openGraphMailDialog(scope.row)"
                   class="action-btn"
                 >
                   Graph 邮件
@@ -452,6 +452,7 @@
               <span class="text-primary">{{ graphEmail.email }}</span> 的 Graph 邮件
             </h3>
             <span class="graph-mail-count">共 {{ filteredGraphMailRecords.length }} 封</span>
+            <span class="graph-mail-memory">{{ graphMailMemoryHint }}</span>
           </div>
           <div class="actions flex gap-md">
             <el-input
@@ -463,12 +464,12 @@
             <el-button
               type="primary"
               size="small"
-              @click="handleViewGraphMails(graphEmail)"
+              @click="fetchGraphMails(graphEmail, { sync: true })"
               :loading="loadingGraphMails"
               :icon="Refresh"
               class="refresh-btn hover-scale"
             >
-              刷新 Graph 邮件
+              {{ graphMailFetchButtonText }}
             </el-button>
           </div>
         </div>
@@ -476,6 +477,7 @@
         <el-table
           v-loading="loadingGraphMails"
           :data="filteredGraphMailRecords"
+          :empty-text="graphMailEmptyText"
           style="width: 100%"
           stripe
           border
@@ -644,7 +646,7 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, reactive } from 'vue'
+import { ref, computed, onMounted, reactive, watch } from 'vue'
 import { useEmailsStore } from '@/store/emails'
 import api from '@/services/api'
 import { ElMessage, ElMessageBox, ElLoading } from 'element-plus'
@@ -675,6 +677,8 @@ const allMailListDialogVisible = ref(false)
 const graphMailDialogVisible = ref(false)
 const graphMailSearch = ref('')
 const graphMailRecords = ref([])
+const graphMailLastFetchedAt = ref('')
+const graphMailLoadedFromDatabase = ref(false)
 const graphEmail = ref(null)
 const allMailSearch = ref('')
 const allMailRecords = ref([])
@@ -882,6 +886,33 @@ const filteredGraphMailRecords = computed(() => {
     )
   })
 })
+const graphMailFetchButtonText = computed(() => {
+  return '刷新 Graph 邮件'
+})
+const graphMailEmptyText = computed(() => {
+  if (graphMailSearch.value.trim()) {
+    return '没有匹配的 Graph 邮件'
+  }
+
+  if (graphMailLoadedFromDatabase.value) {
+    return '数据库中暂无 Graph 邮件，请手动获取'
+  }
+
+  return '请点击刷新 Graph 邮件同步并保存到数据库'
+})
+const graphMailMemoryHint = computed(() => {
+  if (!graphEmail.value) {
+    return ''
+  }
+
+  if (graphMailLoadedFromDatabase.value) {
+    return graphMailLastFetchedAt.value
+      ? `当前显示数据库记录，最近同步时间：${formatDate(graphMailLastFetchedAt.value)}`
+      : '当前显示数据库中的 Graph 邮件记录'
+  }
+
+  return '打开模态框后会读取数据库记录，刷新时同步 Graph 并保存'
+})
 
 // 方法
 const refreshEmails = async () => {
@@ -936,11 +967,35 @@ const normalizeGraphMailRecord = (mail, emailAddress = '') => ({
   has_attachments: Boolean(mail.has_attachments)
 })
 
-const handleViewGraphMails = async (row) => {
+const isGraphMailRecord = (mail) => {
+  return mail?.source === 'graph' || !!mail?.external_id || !!mail?.body_preview || !!mail?.parent_folder_id
+}
+
+const syncGraphMailRecordsFromStore = () => {
+  if (!graphEmail.value || emailsStore.currentEmailId !== graphEmail.value.id) {
+    return
+  }
+
+  const records = Array.isArray(emailsStore.currentMailRecords) ? emailsStore.currentMailRecords : []
+  const graphRecords = records
+    .filter(isGraphMailRecord)
+    .map((mail) => normalizeGraphMailRecord(mail, graphEmail.value.email))
+
+  graphMailRecords.value = graphRecords
+  graphMailLoadedFromDatabase.value = true
+
+  if (!graphMailLastFetchedAt.value && graphRecords.length > 0) {
+    graphMailLastFetchedAt.value = graphRecords[0]?.created_at || ''
+  }
+}
+
+const fetchGraphMails = async (row = graphEmail.value, options = {}) => {
   if (!canUseGraph(row)) {
     ElMessage.warning('当前邮箱缺少 Graph 所需凭据')
     return
   }
+
+  const { sync = false, showSuccess = sync } = options
 
   loadingGraphMails.value = true
   graphEmail.value = row
@@ -949,12 +1004,22 @@ const handleViewGraphMails = async (row) => {
   try {
     const response = await api.getGraphMessages(row.id, {
       folder: 'all',
-      limit: 500
+      limit: 500,
+      sync
     })
 
     const messages = Array.isArray(response.data?.messages) ? response.data.messages : []
     graphMailRecords.value = messages.map((mail) => normalizeGraphMailRecord(mail, row.email))
-    ElMessage.success(`已通过 Graph 获取 ${graphMailRecords.value.length} 封邮件`)
+    graphMailLoadedFromDatabase.value = true
+
+    if (sync) {
+      graphMailLastFetchedAt.value = new Date().toISOString()
+      if (showSuccess) {
+        ElMessage.success(`已同步 ${response.data?.saved_count ?? 0} 封 Graph 邮件，当前数据库共有 ${graphMailRecords.value.length} 封`)
+      }
+    } else if (!graphMailLastFetchedAt.value && messages.length > 0) {
+      graphMailLastFetchedAt.value = messages[0]?.created_at || ''
+    }
   } catch (error) {
     console.error('获取 Graph 邮件失败:', error)
     ElMessage.error('获取 Graph 邮件失败: ' + (error.message || '未知错误'))
@@ -962,6 +1027,45 @@ const handleViewGraphMails = async (row) => {
     loadingGraphMails.value = false
   }
 }
+
+const openGraphMailDialog = async (row) => {
+  if (!canUseGraph(row)) {
+    ElMessage.warning('当前邮箱缺少 Graph 所需凭据')
+    return
+  }
+
+  graphEmail.value = row
+  graphMailSearch.value = ''
+  graphMailRecords.value = []
+  graphMailLastFetchedAt.value = ''
+  graphMailLoadedFromDatabase.value = false
+  loadingGraphMails.value = false
+  graphMailDialogVisible.value = true
+
+  loadingGraphMails.value = true
+  try {
+    emailsStore.currentEmailId = row.id
+    await emailsStore.fetchMailRecords(row.id)
+    if (!emailsStore.isConnected) {
+      syncGraphMailRecordsFromStore()
+    }
+  } catch (error) {
+    console.error('获取 Graph 数据库邮件记录失败:', error)
+    ElMessage.error('获取 Graph 数据库邮件记录失败: ' + (error.message || '未知错误'))
+  } finally {
+    loadingGraphMails.value = false
+  }
+}
+
+watch(
+  () => emailsStore.currentMailRecords,
+  () => {
+    if (graphMailDialogVisible.value) {
+      syncGraphMailRecordsFromStore()
+    }
+  },
+  { deep: true }
+)
 
 const handleSelectionChange = (selection) => {
   if (Array.isArray(selection)) {
@@ -1771,6 +1875,11 @@ onMounted(() => {
 .graph-mail-count {
   color: var(--secondary-text-color);
   font-size: 0.9rem;
+}
+
+.graph-mail-memory {
+  color: var(--secondary-text-color);
+  font-size: 0.85rem;
 }
 
 .subject-cell {
